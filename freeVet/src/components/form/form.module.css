@@ -1,0 +1,79 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "OpenSansCondensed", sans-serif;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  width: 335px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 12px 10px;
+  border: 0.5px solid #8E8E8E;
+  font-family: "OpenSansCondensed";
+}
+
+.input::placeholder {
+  color: #8E8E8E;
+  font-family: "OpenSansCondensed";
+}
+
+.subBtn {
+  width: 268px;
+  height: 52px;
+  border-radius: 60px;
+  border: none;
+  color: white;
+  background-color: #2A9D8F;
+  cursor: pointer;
+  margin: 0 auto;
+  
+}
+
+
+
+
+
+
+.imageBox {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.customFileBox {
+  width: 72px;
+  height: 72px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px 2px #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadPlaceholder {
+  font-size: 32px;
+  color: #aaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadedImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
