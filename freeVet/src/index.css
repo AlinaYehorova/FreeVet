@@ -1,18 +1,16 @@
-@font-face {
-  font-family: "OpenSansCondensed"; 
-  src: url("./fonts/osanscondensed/OpenSansCondensed.woff") format("truetype"); 
-  font-style: normal; 
-  font-weight: normal; 
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "OpenSansCondensed";
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #242424;
 }
 
-
 body {
-  background: #FFFFFF;
+  background: #FAFAFA;
+}
+
+button {
+  cursor: pointer;
 }

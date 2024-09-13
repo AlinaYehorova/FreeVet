@@ -4,50 +4,36 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: "OpenSansCondensed", sans-serif;
+  background: white;
 }
 
-.formBox {
+.formHeader {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.input {
   width: 335px;
-  height: 40px;
-  border-radius: 10px;
-  padding: 12px 10px;
-  border: 0.5px solid #8E8E8E;
-  font-family: "OpenSansCondensed";
+  position: relative;
 }
 
-.input::placeholder {
-  color: #8E8E8E;
-  font-family: "OpenSansCondensed";
-}
-
-.subBtn {
-  width: 268px;
-  height: 52px;
-  border-radius: 60px;
+.formHeader_leftArrowBtn {
+  background: transparent;
   border: none;
-  color: white;
-  background-color: #2A9D8F;
-  cursor: pointer;
-  margin: 0 auto;
-  
+  align-self: start;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-
-
-
-
+.formHeader h2 {
+  font-size: 22px;
+  margin: 0 auto;
+}
 
 .imageBox {
+  margin-top: 16px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 16px;
+  align-items: center;
+  gap: 8px;
 }
 
 .customFileBox {
@@ -56,7 +42,7 @@
   border: none;
   cursor: pointer;
   border-radius: 15px;
-  background-color: #ffffff;
+  background-color: #FAFAFA;
   box-shadow: 0 2px 7px 2px #00000040;
   display: flex;
   justify-content: center;
@@ -77,3 +63,138 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
+.uploadLabel_addPhoto {
+  font-size: 16px;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  max-width: 335px;
+}
+
+.input {
+  width: 335px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 12px 10px;
+  background-color: #FAFAFA;
+  border: 0.5px solid #8E8E8E;
+  margin-top: 3px;
+}
+
+.input::placeholder {
+  color: #8E8E8E;
+}
+
+.formBox_header {
+  margin: 12px auto 9px;
+  color: #2A9D8F;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.formBox_checkboxBox {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-width: 351px;
+  padding: 9px 22px 9px 15px;
+  border: 0.5px solid #2A9D8F;
+  border-radius: 10px;
+  position: relative;
+}
+
+.formBox_checkboxBox p {
+  margin-bottom: 6px;
+  line-height: 18px;
+}
+
+.formBox_checkboxBox_pets {
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.formBox_checkboxBox_pets span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #595959;
+}
+
+.formBox_checkboxBox_pets input {
+  width: 24px;
+  height: 24px;
+}
+
+.formBox_checkboxBox_petsBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 26px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #2A9D8F;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.lineBox {
+  width: 351px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.line {
+  width: 100%;
+  border: 0.5px solid #D9D9D9;
+  margin: 10px;
+}
+
+.formBox_checkboxBox_last {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 351px;
+  padding: 9px 22px 9px 15px;
+  border: 0.5px solid #2A9D8F;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.formBox_checkboxBox_last p {
+  margin: 1px 0 7px;
+  line-height: 18px;
+}
+
+.subBtn {
+  width: 268px;
+  height: 52px;
+  border-radius: 60px;
+  border: none;
+  color: white;
+  background-color: #2A9D8F;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.privacyPolicy {
+  text-align: center;
+  color: #595959;
+  font-size: 12px;
+}
+
+
+
