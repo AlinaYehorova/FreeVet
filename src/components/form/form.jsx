@@ -63,6 +63,7 @@ const Form = () => {
         pets: false,
         volunteer: false,
         shelterWorker: false,
+        petOwner: false,
       });
     }
   };
@@ -202,7 +203,7 @@ const Form = () => {
               <span>
                 <input
                   type="checkbox"
-                  name="shelterWorker"
+                  name="petOwner"
                   onChange={handleUserRoleChange}
                   checked={userRoles.petOwner}
                   disabled={isVetRoleSelected}
