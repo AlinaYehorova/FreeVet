@@ -2,11 +2,30 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import s from "./form.module.css";
-import plus from "../../assets/plus.svg"
-import leftArrow from "../../assets/left-arrow.svg"
+import plus from "../../assets/plus.svg";
+import leftArrow from "../../assets/left-arrow.svg";
 
 const Form = () => {
   const [image, setImage] = useState(null); // Состояние для изображения
+
+  // Отдельные состояния для каждого чекбокса "Пользователя"
+  const [userRoles, setUserRoles] = useState({
+    homelessAnimals: false,
+    pets: false,
+    volunteer: false,
+    shelterWorker: false,
+  });
+
+  // Отдельные состояния для каждого чекбокса "Специалиста"
+  const [vetRoles, setVetRoles] = useState({
+    vetDoctor: false,
+    cynologist: false,
+    zooPsychologist: false,
+  });
+
+  // Проверка, выбраны ли роли в каждом блоке
+  const isUserRoleSelected = Object.values(userRoles).some((value) => value);
+  const isVetRoleSelected = Object.values(vetRoles).some((value) => value);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -19,11 +38,45 @@ const Form = () => {
     }
   };
 
+  // Логика для обработки изменений в чекбоксах блока "Пользователь"
+  const handleUserRoleChange = (e) => {
+    const { name, checked } = e.target;
+    setUserRoles((prevState) => ({
+      ...prevState,
+      [name]: checked,
+    }));
+
+    if (checked) {
+      setVetRoles({
+        vetDoctor: false,
+        cynologist: false,
+        zooPsychologist: false,
+      });
+    }
+  };
+
+  // Логика для обработки изменений в чекбоксах блока "Специалист"
+  const handleVetRoleChange = (e) => {
+    const { name, checked } = e.target;
+    setVetRoles((prevState) => ({
+      ...prevState,
+      [name]: checked,
+    }));
+
+    if (checked) {
+      setUserRoles({
+        homelessAnimals: false,
+        pets: false,
+        volunteer: false,
+        shelterWorker: false,
+      });
+    }
+  };
+
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      // Отправляем данные вместе с изображением
       const formData = new FormData();
       formData.append("name", data.name);
       formData.append("phone", data.phone);
@@ -47,8 +100,10 @@ const Form = () => {
   return (
     <div className={s.form}>
       <div className={s.formHeader}>
-        <button className={s.formHeader_leftArrowBtn}><img src={leftArrow} alt="arrow to left side" /></button>
-      <h2>Создать новый аккаунт</h2>
+        <button className={s.formHeader_leftArrowBtn}>
+          <img src={leftArrow} alt="arrow to left side" />
+        </button>
+        <h2>Создать новый аккаунт</h2>
       </div>
 
       {/* Бокс для загрузки изображения */}
@@ -65,14 +120,18 @@ const Form = () => {
           {image ? (
             <img src={image} alt="Uploaded" className={s.uploadedImage} />
           ) : (
-            <span className={s.uploadPlaceholder}><img src={plus} alt="plus" /></span> // Плейсхолдер
+            <span className={s.uploadPlaceholder}>
+              <img src={plus} alt="plus" />
+            </span> // Плейсхолдер
           )}
         </label>
-        <label htmlFor="fileInput" className={s.uploadLabel_addPhoto}> Добавить фото</label>
+        <label htmlFor="fileInput" className={s.uploadLabel_addPhoto}>
+          Добавить фото
+        </label>
       </div>
 
       <form className={s.formBox} onSubmit={handleSubmit(onSubmit)}>
-        <label style={{alignSelf: "start"}}>
+        <label style={{ alignSelf: "start" }}>
           Имя <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <input
@@ -81,7 +140,7 @@ const Form = () => {
           placeholder="Ваше имя"
           required
         />
-        <label style={{alignSelf: "start"}}>
+        <label style={{ alignSelf: "start" }}>
           Телефон <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <input
@@ -91,25 +150,59 @@ const Form = () => {
           required
         />
         <h3 className={s.formBox_header}>Выберите Вашу роль в сервисе</h3>
-        <div className={s.formBox_checkboxBox}>
+
+        {/* Блок для пользователя */}
+        <div className={s.formBox_checkboxBox_user}>
           <span>
-          <p>Кому Вы планируете помогать с FreeVet?</p>
-          <div className={s.formBox_checkboxBox_pets}>
-            <span><input type="checkbox" /> Бездомным животным</span>
-            <span><input type="checkbox" /> Домашним животным</span>
-          </div>
+            <p>Кому Вы планируете помогать с FreeVet?</p>
+            <div className={s.formBox_checkboxBox_pets}>
+              <span>
+                <input
+                  type="checkbox"
+                  name="homelessAnimals"
+                  onChange={handleUserRoleChange}
+                  checked={userRoles.homelessAnimals}
+                  disabled={isVetRoleSelected}
+                />{" "}
+                Бездомным животным
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="pets"
+                  onChange={handleUserRoleChange}
+                  checked={userRoles.pets}
+                  disabled={isVetRoleSelected}
+                />{" "}
+                Домашним животным
+              </span>
+            </div>
           </span>
           <span>
-          <p>Расскажите о себе</p>
-          <div className={s.formBox_checkboxBox_pets}>
-            <span><input type="checkbox" /> Я - волонтер</span>
-            <span style={{position: "relative", right: "5px"}}><input type="checkbox" /> Я - сотрудник приюта</span>
-          </div>
+            <p>Расскажите о себе</p>
+            <div className={s.formBox_checkboxBox_pets}>
+              <span>
+                <input
+                  type="checkbox"
+                  name="volunteer"
+                  onChange={handleUserRoleChange}
+                  checked={userRoles.volunteer}
+                  disabled={isVetRoleSelected}
+                />{" "}
+                Я - волонтер
+              </span>
+              <span style={{ position: "relative", right: "5px" }}>
+                <input
+                  type="checkbox"
+                  name="shelterWorker"
+                  onChange={handleUserRoleChange}
+                  checked={userRoles.shelterWorker}
+                  disabled={isVetRoleSelected}
+                />{" "}
+                Я - сотрудник приюта
+              </span>
+            </div>
           </span>
-          <div className={s.formBox_checkboxBox_pets}>
-            <span><input type="checkbox" /> Я - У меня есть домашнее животное</span>
-            <button className={s.formBox_checkboxBox_petsBtn}>Пользователь</button>
-          </div>
         </div>
 
         <div className={s.lineBox}>
@@ -118,25 +211,57 @@ const Form = () => {
           <div className={s.line}></div>
         </div>
 
-        <div className={s.formBox_checkboxBox_last}>
+        {/* Блок для специалиста */}
+        <div className={s.formBox_checkboxBox_specialist}>
           <span>
-          <p>Вы хотите стать участником команды FreeVet?</p>
-          <div className={s.formBox_checkboxBox_pets}>
-            <span><input type="checkbox" /> Я - ветеринарный врач</span>
-          </div>
+            <p>Вы хотите стать участником команды FreeVet?</p>
+            <div className={s.formBox_checkboxBox_pets}>
+              <span>
+                <input
+                  type="checkbox"
+                  name="vetDoctor"
+                  onChange={handleVetRoleChange}
+                  checked={vetRoles.vetDoctor}
+                  disabled={isUserRoleSelected}
+                />{" "}
+                Я - ветеринарный врач
+              </span>
+            </div>
           </span>
           <span>
-          <div className={s.formBox_checkboxBox_pets}>
-            <span><input type="checkbox" /> Я - кинолог</span>
-          </div>
+            <div className={s.formBox_checkboxBox_pets}>
+              <span>
+                <input
+                  type="checkbox"
+                  name="cynologist"
+                  onChange={handleVetRoleChange}
+                  checked={vetRoles.cynologist}
+                  disabled={isUserRoleSelected}
+                />{" "}
+                Я - кинолог
+              </span>
+            </div>
           </span>
           <div className={s.formBox_checkboxBox_pets}>
-            <span><input type="checkbox" /> Я - зоопсихолог</span>
-            <button className={s.formBox_checkboxBox_petsBtn}> Специалист</button>
+            <span>
+              <input
+                type="checkbox"
+                name="zooPsychologist"
+                onChange={handleVetRoleChange}
+                checked={vetRoles.zooPsychologist}
+                disabled={isUserRoleSelected}
+              />{" "}
+              Я - зоопсихолог
+            </span>
           </div>
         </div>
-        <button className={s.subBtn}>Отправить код</button> 
-        <p className={s.privacyPolicy}>Нажимая на кнопку Отправить код, Вы соглашаетесь<br/>с Политикой конфиденциальности</p>
+
+        <button className={s.subBtn}>Отправить код</button>
+        <p className={s.privacyPolicy}>
+          Нажимая на кнопку Отправить код, Вы соглашаетесь
+          <br />
+          с Политикой конфиденциальности
+        </p>
       </form>
     </div>
   );
