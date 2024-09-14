@@ -8,7 +8,6 @@ import leftArrow from "../../assets/left-arrow.svg";
 const Form = () => {
   const [image, setImage] = useState(null); // Состояние для изображения
 
-  // Отдельные состояния для каждого чекбокса "Пользователя"
   const [userRoles, setUserRoles] = useState({
     homelessAnimals: false,
     pets: false,
@@ -16,14 +15,12 @@ const Form = () => {
     shelterWorker: false,
   });
 
-  // Отдельные состояния для каждого чекбокса "Специалиста"
   const [vetRoles, setVetRoles] = useState({
     vetDoctor: false,
     cynologist: false,
     zooPsychologist: false,
   });
 
-  // Проверка, выбраны ли роли в каждом блоке
   const isUserRoleSelected = Object.values(userRoles).some((value) => value);
   const isVetRoleSelected = Object.values(vetRoles).some((value) => value);
 
@@ -32,20 +29,18 @@ const Form = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result); // Устанавливаем изображение
+        setImage(reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Логика для обработки изменений в чекбоксах блока "Пользователь"
   const handleUserRoleChange = (e) => {
     const { name, checked } = e.target;
     setUserRoles((prevState) => ({
       ...prevState,
       [name]: checked,
     }));
-
     if (checked) {
       setVetRoles({
         vetDoctor: false,
@@ -55,14 +50,12 @@ const Form = () => {
     }
   };
 
-  // Логика для обработки изменений в чекбоксах блока "Специалист"
   const handleVetRoleChange = (e) => {
     const { name, checked } = e.target;
     setVetRoles((prevState) => ({
       ...prevState,
       [name]: checked,
     }));
-
     if (checked) {
       setUserRoles({
         homelessAnimals: false,
@@ -90,8 +83,8 @@ const Form = () => {
         },
       });
 
-      reset(); // Сбрасываем форму после успешной отправки
-      setImage(null); // Сбрасываем изображение
+      reset();
+      setImage(null);
     } catch (error) {
       console.error("Ошибка при отправке формы:", error);
     }
@@ -113,16 +106,15 @@ const Form = () => {
           accept="image/*"
           id="fileInput"
           onChange={handleImageChange}
-          style={{ display: "none" }} // Скрываем стандартный input
+          style={{ display: "none" }}
         />
-        {/* Блок для изображения */}
         <label htmlFor="fileInput" className={s.customFileBox}>
           {image ? (
             <img src={image} alt="Uploaded" className={s.uploadedImage} />
           ) : (
             <span className={s.uploadPlaceholder}>
               <img src={plus} alt="plus" />
-            </span> // Плейсхолдер
+            </span>
           )}
         </label>
         <label htmlFor="fileInput" className={s.uploadLabel_addPhoto}>
@@ -149,6 +141,7 @@ const Form = () => {
           placeholder="+"
           required
         />
+
         <h3 className={s.formBox_header}>Выберите Вашу роль в сервисе</h3>
 
         {/* Блок для пользователя */}

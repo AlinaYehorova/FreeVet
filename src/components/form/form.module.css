@@ -98,7 +98,7 @@
   font-weight: bold;
 }
 
-.formBox_checkboxBox {
+.formBox_checkboxBox_user {
   display: flex;
   flex-direction: column;
   gap: 11px;
@@ -109,7 +109,7 @@
   position: relative;
 }
 
-.formBox_checkboxBox p {
+.formBox_checkboxBox_user p {
   margin-bottom: 6px;
   line-height: 18px;
 }
@@ -161,7 +161,7 @@
   margin: 10px;
 }
 
-.formBox_checkboxBox_last {
+.formBox_checkboxBox_specialist {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -173,7 +173,7 @@
   margin-bottom: 17px;
 }
 
-.formBox_checkboxBox_last p {
+.formBox_checkboxBox_specialist p {
   margin: 1px 0 7px;
   line-height: 18px;
 }
