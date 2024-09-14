@@ -13,6 +13,7 @@ const Form = () => {
     pets: false,
     volunteer: false,
     shelterWorker: false,
+    petOwner: false,
   });
 
   const [vetRoles, setVetRoles] = useState({
@@ -196,6 +197,21 @@ const Form = () => {
               </span>
             </div>
           </span>
+          <span>
+            <div className={s.formBox_checkboxBox_pets}>
+              <span>
+                <input
+                  type="checkbox"
+                  name="shelterWorker"
+                  onChange={handleUserRoleChange}
+                  checked={userRoles.petOwner}
+                  disabled={isVetRoleSelected}
+                />{" "}
+                У меня есть домашнее животное
+              </span>
+            </div>
+            <div className={s.formBox_checkboxBox_petsRole}>Пользователь</div>
+          </span>
         </div>
 
         <div className={s.lineBox}>
@@ -246,14 +262,14 @@ const Form = () => {
               />{" "}
               Я - зоопсихолог
             </span>
+            <div className={s.formBox_checkboxBox_petsRole}>Специалист</div>
           </div>
         </div>
 
         <button className={s.subBtn}>Отправить код</button>
         <p className={s.privacyPolicy}>
           Нажимая на кнопку Отправить код, Вы соглашаетесь
-          <br />
-          с Политикой конфиденциальности
+          <br />с Политикой конфиденциальности
         </p>
       </form>
     </div>
