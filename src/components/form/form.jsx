@@ -4,9 +4,10 @@ import axios from "axios";
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
+import CustomButton from "../CustomButton/CustomButton";
 
 const Form = () => {
-  const [image, setImage] = useState(null); // Состояние для изображения
+  const [image, setImage] = useState(null);
 
   const [userRoles, setUserRoles] = useState({
     homelessAnimals: false,
@@ -267,7 +268,7 @@ const Form = () => {
           </div>
         </div>
 
-        <button className={s.subBtn}>Отправить код</button>
+        <CustomButton text="Отправить код" padding="16px 78px"/>
         <p className={s.privacyPolicy}>
           Нажимая на кнопку Отправить код, Вы соглашаетесь
           <br />с Политикой конфиденциальности
