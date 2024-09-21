@@ -1,0 +1,33 @@
+@import '../../App.css';
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px auto;
+    width: 375px;
+    height: 90px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--color-main); 
+   padding-top: 20px;
+   padding-bottom: 24px;
+  }
+.footer_links{
+     color: var(--color-text-white); 
+     font-weight: bold;
+     padding-top: 10px;
+}
+  .footerItem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none; 
+    color: var(--color-text-white); 
+  }
+  
+  .footerIcon {
+    margin-bottom: 3px; 
+  }
+  
