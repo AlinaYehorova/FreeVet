@@ -19,6 +19,7 @@ const CustomButton = ({
         border: border || 'none',
         padding: padding || '16px 51px',
         color: color || 'var(--color-text-white)', 
+        lineHeight: 1.1,
       }}
     >
       {text}

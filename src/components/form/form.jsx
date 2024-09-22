@@ -4,7 +4,7 @@ import axios from "axios";
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
-import CustomButton from "../customButton/сustomButton";
+import CustomButton from "../customButton/CustomButton";
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -91,6 +91,10 @@ const Form = () => {
     } catch (error) {
       console.error("Ошибка при отправке формы:", error);
     }
+  };
+
+  const handlePhoneLogin = () => {
+    alert('Phone login not implemented yet!');
   };
 
   return (
@@ -268,7 +272,7 @@ const Form = () => {
           </div>
         </div>
 
-        <CustomButton text="Отправить код" padding="16px 78px"/>
+        <CustomButton onClick={handlePhoneLogin} text="Отправить код" padding="16px 78px"/>
         <p className={s.privacyPolicy}>
           Нажимая на кнопку Отправить код, Вы соглашаетесь
           <br />с Политикой конфиденциальности

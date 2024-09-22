@@ -1,0 +1,44 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: 20px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 29px;
+}
+
+.button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.lineBox {
+  width: 351px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 37px 0;
+}
+.line {
+  width: 100%;
+  border: 0.5px solid #D9D9D9;
+  margin: 10px;
+}
