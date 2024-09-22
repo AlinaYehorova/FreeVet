@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./LanguageSwitcher.module.css";
+import s from "./languageSwitcher.module.css";
 import flagEN from '../../assets/Flags/en.svg';
 import flagME from '../../assets/Flags/me.svg';
 import flagBA from '../../assets/Flags/ba.svg';
@@ -33,20 +33,20 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className={styles.languageSwitcher}>
-      <button className={styles.button} onClick={toggleMenu}>
-        <img src={selectedLanguage.flag} alt={selectedLanguage.name} className={styles.flagIcon} />
+    <div className={s.languageSwitcher}>
+      <button className={s.button} onClick={toggleMenu}>
+        <img src={selectedLanguage.flag} alt={selectedLanguage.name} className={s.flagIcon} />
       </button>
 
       {isOpen && (
-        <ul className={styles.languageList}>
+        <ul className={s.languageList}>
           {languages.map((language) => (
             <li
               key={language.code}
-              className={styles.languageItem}
+              className={s.languageItem}
               onClick={() => changeLanguage(language)}
             >
-              <img src={language.flag} alt={language.name} className={styles.flagIcon} />
+              <img src={language.flag} alt={language.name} className={s.flagIcon} />
             </li>
           ))}
         </ul>

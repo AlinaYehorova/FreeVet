@@ -4,7 +4,7 @@ import axios from "axios";
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../customButton/сustomButton";
 
 const Form = () => {
   const [image, setImage] = useState(null);

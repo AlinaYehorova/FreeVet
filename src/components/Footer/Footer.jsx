@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import s from './Footer.module.css'; // Подключаем модульные стили
+import s from './footer.module.css'; // Подключаем модульные стили
 
 // Импортируем иконки
 import PlusWhite from '../../assets/PlusWhite.png';
