@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import L_authorizationPage from './pages/login/l_authorizationPage/l_authorizationPage';
-import Form from './components/form/Form';
+import Form from './components/form/Form.jsx';
 
 
 
