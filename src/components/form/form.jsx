@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import {Link} from "react-router-dom"
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
 import CustomCheckbox from "../customCheckbox/CustomCheckbox";
 import CustomButton from "../customButton/CustomButton";
+
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -101,9 +103,9 @@ const Form = () => {
   return (
     <div className={s.form}>
       <div className={s.formHeader}>
-        <button className={s.formHeader_leftArrowBtn}>
+        <Link to="/" className={s.formHeader_leftArrowBtn}>
           <img src={leftArrow} alt="arrow to left side" />
-        </button>
+        </Link>
         <h2>Создать новый аккаунт</h2>
       </div>
 
