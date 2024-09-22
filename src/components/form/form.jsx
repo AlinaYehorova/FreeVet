@@ -4,6 +4,7 @@ import axios from "axios";
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
+import CustomCheckbox from "../customCheckbox/CustomCheckbox";
 import CustomButton from "../customButton/CustomButton";
 
 const Form = () => {
@@ -156,19 +157,18 @@ const Form = () => {
           <span>
             <p>Кому Вы планируете помогать с FreeVet?</p>
             <div className={s.formBox_checkboxBox_pets}>
+             
               <span>
-                <input
-                  type="checkbox"
-                  name="homelessAnimals"
-                  onChange={handleUserRoleChange}
-                  checked={userRoles.homelessAnimals}
-                  disabled={isVetRoleSelected}
+                 <CustomCheckbox 
+                 name="homelessAnimals"
+                 onChange={handleUserRoleChange}
+                 checked={userRoles.homelessAnimals}
+                 disabled={isVetRoleSelected}
                 />{" "}
                 Бездомным животным
               </span>
               <span>
-                <input
-                  type="checkbox"
+              <CustomCheckbox 
                   name="pets"
                   onChange={handleUserRoleChange}
                   checked={userRoles.pets}
@@ -182,8 +182,7 @@ const Form = () => {
             <p>Расскажите о себе</p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-                <input
-                  type="checkbox"
+              <CustomCheckbox 
                   name="volunteer"
                   onChange={handleUserRoleChange}
                   checked={userRoles.volunteer}
@@ -192,8 +191,7 @@ const Form = () => {
                 Я - волонтер
               </span>
               <span style={{ position: "relative", right: "5px" }}>
-                <input
-                  type="checkbox"
+              <CustomCheckbox 
                   name="shelterWorker"
                   onChange={handleUserRoleChange}
                   checked={userRoles.shelterWorker}
@@ -206,8 +204,7 @@ const Form = () => {
           <span>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-                <input
-                  type="checkbox"
+              <CustomCheckbox 
                   name="petOwner"
                   onChange={handleUserRoleChange}
                   checked={userRoles.petOwner}
@@ -232,8 +229,7 @@ const Form = () => {
             <p>Вы хотите стать участником команды FreeVet?</p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-                <input
-                  type="checkbox"
+              <CustomCheckbox 
                   name="vetDoctor"
                   onChange={handleVetRoleChange}
                   checked={vetRoles.vetDoctor}
@@ -246,8 +242,7 @@ const Form = () => {
           <span>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-                <input
-                  type="checkbox"
+              <CustomCheckbox 
                   name="cynologist"
                   onChange={handleVetRoleChange}
                   checked={vetRoles.cynologist}
@@ -259,8 +254,7 @@ const Form = () => {
           </span>
           <div className={s.formBox_checkboxBox_pets}>
             <span>
-              <input
-                type="checkbox"
+            <CustomCheckbox 
                 name="zooPsychologist"
                 onChange={handleVetRoleChange}
                 checked={vetRoles.zooPsychologist}

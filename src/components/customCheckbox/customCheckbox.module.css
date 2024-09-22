@@ -1,0 +1,19 @@
+.customCheckbox {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.checkboxIcon {
+  width: 24px; 
+  height: 24px; 
+}
+
+.checkedIcon {
+  width: 16px; 
+  height: 16px;
+}
+
+.disabled {
+  opacity: 0.5; /* Полупрозрачный цвет для отключенного состояния */
+  pointer-events: none; /* Отключаем клики на элементе */
+}
