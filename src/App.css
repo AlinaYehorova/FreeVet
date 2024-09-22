@@ -46,7 +46,7 @@
   /* 15px зона безопасности с обеих сторон */
   padding-inline: var(--container-padding-x);
 
-  background-color: rgb(193, 251, 193);
+  /* background-color: rgb(193, 251, 193); */
 }
 
 body,
