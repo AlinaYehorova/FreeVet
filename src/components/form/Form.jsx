@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
 import CustomCheckbox from "../customCheckbox/CustomCheckbox";
 import CustomButton from "../customButton/CustomButton";
-
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -109,7 +108,6 @@ const Form = () => {
         <h2>Создать новый аккаунт</h2>
       </div>
 
-      {/* Бокс для загрузки изображения */}
       <div className={s.imageBox}>
         <input
           type="file"
@@ -155,64 +153,81 @@ const Form = () => {
         <h3 className={s.formBox_header}>Выберите Вашу роль в сервисе</h3>
 
         {/* Блок для пользователя */}
-        <div className={s.formBox_checkboxBox_user}>
+        <div
+          className={`${s.formBox_checkboxBox_user} ${
+            isVetRoleSelected ? s.disabledBox : ""
+          }`}
+        >
           <span>
-            <p>Кому Вы планируете помогать с FreeVet?</p>
+            <p>
+              Кому Вы планируете помогать с FreeVet?
+            </p>
             <div className={s.formBox_checkboxBox_pets}>
-             
               <span>
-                 <CustomCheckbox 
-                 name="homelessAnimals"
-                 onChange={handleUserRoleChange}
-                 checked={userRoles.homelessAnimals}
-                 disabled={isVetRoleSelected}
+                <CustomCheckbox
+                  name="homelessAnimals"
+                  onChange={handleUserRoleChange}
+                  checked={userRoles.homelessAnimals}
+                  disabled={isVetRoleSelected}
                 />{" "}
-                Бездомным животным
+                <span className={isVetRoleSelected ? s.disabledText : ""}>
+                  Бездомным животным
+                </span>
               </span>
               <span>
-              <CustomCheckbox 
+                <CustomCheckbox
                   name="pets"
                   onChange={handleUserRoleChange}
                   checked={userRoles.pets}
                   disabled={isVetRoleSelected}
                 />{" "}
-                Домашним животным
+                <span className={isVetRoleSelected ? s.disabledText : ""}>
+                  Домашним животным
+                </span>
               </span>
             </div>
           </span>
           <span>
-            <p>Расскажите о себе</p>
+            <p>
+              Расскажите о себе
+            </p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-              <CustomCheckbox 
+                <CustomCheckbox
                   name="volunteer"
                   onChange={handleUserRoleChange}
                   checked={userRoles.volunteer}
                   disabled={isVetRoleSelected}
                 />{" "}
-                Я - волонтер
+                <span className={isVetRoleSelected ? s.disabledText : ""}>
+                  Я - волонтер
+                </span>
               </span>
               <span style={{ position: "relative", right: "5px" }}>
-              <CustomCheckbox 
+                <CustomCheckbox
                   name="shelterWorker"
                   onChange={handleUserRoleChange}
                   checked={userRoles.shelterWorker}
                   disabled={isVetRoleSelected}
                 />{" "}
-                Я - сотрудник приюта
+                <span className={isVetRoleSelected ? s.disabledText : ""}>
+                  Я - сотрудник приюта
+                </span>
               </span>
             </div>
           </span>
           <span>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-              <CustomCheckbox 
+                <CustomCheckbox
                   name="petOwner"
                   onChange={handleUserRoleChange}
                   checked={userRoles.petOwner}
                   disabled={isVetRoleSelected}
                 />{" "}
-                У меня есть домашнее животное
+                <span className={isVetRoleSelected ? s.disabledText : ""}>
+                  У меня есть домашнее животное
+                </span>
               </span>
             </div>
             <div className={s.formBox_checkboxBox_petsRole}>Пользователь</div>
@@ -226,52 +241,69 @@ const Form = () => {
         </div>
 
         {/* Блок для специалиста */}
-        <div className={s.formBox_checkboxBox_specialist}>
+        <div
+          className={`${s.formBox_checkboxBox_specialist} ${
+            isUserRoleSelected ? s.disabledBox : ""
+          }`}
+        >
           <span>
-            <p>Вы хотите стать участником команды FreeVet?</p>
+            <p>
+              Вы хотите стать участником команды FreeVet?
+            </p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-              <CustomCheckbox 
+                <CustomCheckbox
                   name="vetDoctor"
                   onChange={handleVetRoleChange}
                   checked={vetRoles.vetDoctor}
                   disabled={isUserRoleSelected}
                 />{" "}
-                Я - ветеринарный врач
+                <span className={isUserRoleSelected ? s.disabledText : ""}>
+                  Я - ветеринарный врач
+                </span>
               </span>
             </div>
           </span>
           <span>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
-              <CustomCheckbox 
+                <CustomCheckbox
                   name="cynologist"
                   onChange={handleVetRoleChange}
                   checked={vetRoles.cynologist}
                   disabled={isUserRoleSelected}
                 />{" "}
-                Я - кинолог
+                <span className={isUserRoleSelected ? s.disabledText : ""}>
+                  Я - кинолог
+                </span>
               </span>
             </div>
           </span>
           <div className={s.formBox_checkboxBox_pets}>
             <span>
-            <CustomCheckbox 
+              <CustomCheckbox
                 name="zooPsychologist"
                 onChange={handleVetRoleChange}
                 checked={vetRoles.zooPsychologist}
                 disabled={isUserRoleSelected}
               />{" "}
-              Я - зоопсихолог
+              <span className={isUserRoleSelected ? s.disabledText : ""}>
+                Я - зоопсихолог
+              </span>
             </span>
             <div className={s.formBox_checkboxBox_petsRole}>Специалист</div>
           </div>
         </div>
 
-        <CustomButton onClick={handlePhoneLogin} text="Отправить код" padding="16px 78px"/>
+        <CustomButton
+          onClick={handlePhoneLogin}
+          text="Отправить код"
+          padding="16px 78px"
+        />
         <p className={s.privacyPolicy}>
           Нажимая на кнопку Отправить код, Вы соглашаетесь
-          <br />с Политикой конфиденциальности
+          <br />
+          с Политикой конфиденциальности
         </p>
       </form>
     </div>
@@ -279,3 +311,4 @@ const Form = () => {
 };
 
 export default Form;
+

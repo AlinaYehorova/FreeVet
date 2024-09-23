@@ -178,17 +178,6 @@
   line-height: 18px;
 }
 
-.subBtn {
-  width: 268px;
-  height: 52px;
-  border-radius: 60px;
-  border: none;
-  color: white;
-  background-color: #2A9D8F;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0 auto;
-}
 
 .privacyPolicy {
   text-align: center;
@@ -196,5 +185,13 @@
   font-size: 12px;
 }
 
+.disabledText {
+  opacity: 0.5; /* Уменьшение прозрачности текста */
+}
+
+.disabledBox {
+  border-color: var(--color-main-light); /* Полупрозрачная рамка */
+  pointer-events: none; /* Отключить клики */
+}
 
 
