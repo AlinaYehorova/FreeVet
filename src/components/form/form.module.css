@@ -105,7 +105,7 @@
   min-width: 351px;
   padding: 9px 22px 9px 15px;
   border: 0.5px solid #2A9D8F;
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
 }
 
@@ -145,8 +145,8 @@
   font-size: 12px;
   font-weight: bold;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -0.5px;
+  right: -0.5px;
 }
 
 .lineBox {
@@ -168,7 +168,7 @@
   min-width: 351px;
   padding: 9px 22px 9px 15px;
   border: 0.5px solid #2A9D8F;
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   margin-bottom: 17px;
 }
