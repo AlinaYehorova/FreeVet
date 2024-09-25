@@ -8,6 +8,7 @@ import leftArrow from "../../assets/left-arrow.svg";
 import CustomCheckbox from "../customCheckbox/CustomCheckbox";
 import CustomButton from "../customButton/CustomButton";
 
+
 const Form = () => {
   const [image, setImage] = useState(null);
 
@@ -159,7 +160,7 @@ const Form = () => {
           }`}
         >
           <span>
-            <p>
+            <p className={isVetRoleSelected ? s.disabledText : ""}>
               Кому Вы планируете помогать с FreeVet?
             </p>
             <div className={s.formBox_checkboxBox_pets}>
@@ -188,7 +189,7 @@ const Form = () => {
             </div>
           </span>
           <span>
-            <p>
+            <p className={isVetRoleSelected ? s.disabledText : ""}>
               Расскажите о себе
             </p>
             <div className={s.formBox_checkboxBox_pets}>
@@ -247,7 +248,7 @@ const Form = () => {
           }`}
         >
           <span>
-            <p>
+            <p className={isUserRoleSelected ? s.disabledText : ""}>
               Вы хотите стать участником команды FreeVet?
             </p>
             <div className={s.formBox_checkboxBox_pets}>
