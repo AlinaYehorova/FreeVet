@@ -14,14 +14,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 104px;
-  height: 104px;
   border-radius: 20px;
   background-color: var(--color-text-white);
   box-shadow: 0 2px 7px 2px #00000040;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -32,13 +27,9 @@
 
 .previewBox {
   position: relative;
-  width: 104px;
-  height: 104px;
 }
 
 .previewImage {
-  width: 104px;
-  height: 104px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -67,8 +58,6 @@
 }
 
 .emptyBox {
-  width: 104px;
-  height: 104px;
   border: 1px dashed var(--color-line);
   border-radius: 20px;
 }

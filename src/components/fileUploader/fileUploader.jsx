@@ -3,13 +3,13 @@ import s from './fileUploader.module.css';
 import close from '../../assets/close.svg';
 import plus from '../../assets/plus.svg';
 
-const FileUploader = () => {
+const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius }) => {
   const [files, setFiles] = useState([]);
 
   const handleFileUpload = (event) => {
     const selectedFiles = Array.from(event.target.files);
-    if (files.length + selectedFiles.length > 3) {
-      alert('You can upload up to 3 files.');
+    if (files.length + selectedFiles.length > maxFiles) {
+      alert(`You can upload up to ${maxFiles} files.`);
       return;
     }
     setFiles([...files, ...selectedFiles]);
@@ -24,11 +24,11 @@ const FileUploader = () => {
       <p style={{ alignSelf: 'start', marginBottom: '8px' }}>Добавьте фото и (или) видео</p>
       <div className={s.previewContainer}>
         {files.map((file, index) => (
-          <div key={index} className={s.previewBox}>
+          <div key={index} className={s.previewBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}>
             {file.type.startsWith('image') ? (
-              <img src={URL.createObjectURL(file)} alt={`preview-${index}`} className={s.previewImage} />
+              <img src={URL.createObjectURL(file)} alt={`preview-${index}`} className={s.previewImage} style={{ width: boxSize, height: boxSize }} />
             ) : (
-              <video controls autoPlay className={s.previewImage}>
+              <video controls autoPlay className={s.previewImage} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}>
                 <source src={URL.createObjectURL(file)} />
               </video>
             )}
@@ -38,24 +38,24 @@ const FileUploader = () => {
           </div>
         ))}
 
-        {/* Отображаем кнопку загрузки, если файлов меньше 3 */}
-        {files.length < 3 && (
-          <label className={s.uploadBox}>
+        {/* Отображаем кнопку загрузки, если файлов меньше maxFiles */}
+        {files.length < maxFiles && (
+          <label className={s.uploadBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}>
             <input
               type="file"
               accept="image/*,video/*"
               onChange={handleFileUpload}
               style={{ display: 'none' }}
             />
-            <div className={s.addBox}>
-              <img src={plus} alt="plus" />
+            <div className={s.addBox} style={{ fontSize: boxSize / 4 }}>
+              <img src={plus} alt="plus" style={{ width: boxSize / 2.88, height: boxSize / 2.88 }} />
             </div>
           </label>
         )}
 
-        {/* Отображаем пустые места, если файлов меньше 3 */}
-        {Array.from({ length: Math.max(0, 3 - files.length - 1) }).map((_, idx) => (
-          <div key={idx} className={s.emptyBox}></div>
+        {/* Отображаем пустые места, если файлов меньше maxFiles */}
+        {Array.from({ length: Math.max(0, maxFiles - files.length - 1) }).map((_, idx) => (
+          <div key={idx} className={s.emptyBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}></div>
         ))}
       </div>
     </div>

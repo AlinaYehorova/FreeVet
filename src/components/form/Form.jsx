@@ -9,6 +9,7 @@ import CustomCheckbox from "../customCheckbox/CustomCheckbox";
 import CustomButton from "../customButton/CustomButton";
 
 
+
 const Form = () => {
   const [image, setImage] = useState(null);
 
