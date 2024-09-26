@@ -1,0 +1,12 @@
+@import '../../App.css';
+
+.stickTitle {
+    display: inline-block;
+    padding: 16px 78px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid var(--color-main);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
