@@ -1,22 +1,22 @@
 import  { useState } from "react";
 import s from "./languageSwitcher.module.css";
-// import flagEN from '../../assets/flags/en.svg';
-// import flagME from '../../assets/flags/me.svg';
-// import flagBA from '../../assets/flags/ba.svg';
-// import flagRS from '../../assets/flags/rs.svg';
-// import flagRU from '../../assets/flags/ru.svg';
-// import flagUA from '../../assets/flags/ua.svg';
-// import flagFR from '../../assets/flags/fr.svg';
+import flagEN from '../../assets/flags/en.svg';
+import flagME from '../../assets/flags/me.svg';
+import flagBA from '../../assets/flags/ba.svg';
+import flagRS from '../../assets/flags/rs.svg';
+import flagRU from '../../assets/flags/ru.svg';
+import flagUA from '../../assets/flags/ua.svg';
+import flagFR from '../../assets/flags/fr.svg';
 
 
 const languages = [
-  // { code: "en", name: "English", flag: flagEN },
-  // { code: "me", name: "Montenegro", flag: flagME },
-  // { code: "ba", name: "Bosnia", flag: flagBA },
-  // { code: "rs", name: "Serbia", flag: flagRS },
-  // { code: "ru", name: "Russia", flag: flagRU },
-  // { code: "ua", name: "Ukraine", flag: flagUA },
-  // { code: "fr", name: "France", flag: flagFR },
+  { code: "en", name: "English", flag: flagEN },
+  { code: "me", name: "Montenegro", flag: flagME },
+  { code: "ba", name: "Bosnia", flag: flagBA },
+  { code: "rs", name: "Serbia", flag: flagRS },
+  { code: "ru", name: "Russia", flag: flagRU },
+  { code: "ua", name: "Ukraine", flag: flagUA },
+  { code: "fr", name: "France", flag: flagFR },
 ];
 
 const LanguageSwitcher = () => {
@@ -34,7 +34,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div className={s.languageSwitcher}>
-{/*       <button className={s.button} onClick={toggleMenu}>
+      <button className={s.button} onClick={toggleMenu}>
         <img src={selectedLanguage.flag} alt={selectedLanguage.name} className={s.flagIcon} />
       </button>
 
@@ -50,7 +50,7 @@ const LanguageSwitcher = () => {
             </li>
           ))}
         </ul>
-      )} */}
+      )}
     </div>
   );
 };
