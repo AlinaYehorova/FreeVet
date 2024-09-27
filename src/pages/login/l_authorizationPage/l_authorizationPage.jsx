@@ -1,6 +1,6 @@
 import s from "./l_authorizationPage.module.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import AuthOptions from '../../../components/authOptions/AuthOptions';
+import AuthOptions from '../../../components/authOptions/AuthOptions.jsx';
 import LanguageSwitcher from "../../../components/languageSwitcher/LanguageSwitcher.jsx";
 import logo from "../../../assets/TailBook_ecosystem.png"
 import banner from "../../../assets/banner.png"

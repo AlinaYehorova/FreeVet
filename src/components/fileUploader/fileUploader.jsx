@@ -21,7 +21,6 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius }) => {
 
   return (
     <div className={s.uploaderContainer}>
-      <p style={{ alignSelf: 'start', marginBottom: '8px' }}>Добавьте фото и (или) видео</p>
       <div className={s.previewContainer}>
         {files.map((file, index) => (
           <div key={index} className={s.previewBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}>

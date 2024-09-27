@@ -27,7 +27,7 @@ const AuthOptions = () => {
   };
 
   const handlePhoneLogin = () => {
-    navigate('/form'); // Навигация на форму
+    navigate('/register'); // Навигация на форму
   };
 
   return (

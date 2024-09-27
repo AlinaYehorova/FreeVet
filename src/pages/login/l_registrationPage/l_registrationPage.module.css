@@ -1,0 +1,37 @@
+.l_registrationPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  height: 100vh;
+}
+
+.formHeader {
+  display: flex;
+  width: 335px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.formHeader_leftArrowBtn {
+  background: transparent;
+  border: none;
+  align-self: start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.formHeader h2 {
+  font-weight: 300;
+  font-size: 22px;
+  margin: 0 auto;
+}
+
+.privacyPolicy {
+  text-align: center;
+  color: #595959;
+  font-size: 12px;
+  margin-top: 7px;
+}
