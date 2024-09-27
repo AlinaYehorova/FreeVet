@@ -1,0 +1,117 @@
+.l_userRolePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  height: 100vh;
+  font-size: 16px;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  width: 335px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.formHeader_leftArrowBtn {
+  background: transparent;
+  border: none;
+  align-self: start;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.formHeader h2 {
+  font-weight: 100;
+  font-size: 36px;
+  margin: 0 auto;
+}
+
+.l_userRolePage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.formBox_header{
+  text-align: center;
+  color: var(--color-main);
+  margin-bottom: 9px;
+}
+
+.formBox_checkboxBox_user {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-width: 351px;
+  padding: 9px 22px 9px 15px;
+  border: 0.5px solid #2A9D8F;
+  border-radius: 20px;
+  position: relative;
+}
+
+.formBox_checkboxBox_user p {
+  margin-bottom: 6px;
+  line-height: 18px;
+}
+
+.formBox_checkboxBox_pets {
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.formBox_checkboxBox_pets span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #595959;
+}
+
+.formBox_checkboxBox_pets input {
+  width: 24px;
+  height: 24px;
+}
+
+.lineBox {
+  width: 351px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.line {
+  width: 100%;
+  border-bottom: 0.5px solid #D9D9D9;
+  margin: 10px;
+}
+
+.formBox_checkboxBox_specialist {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 351px;
+  padding: 9px 22px 9px 15px;
+  border: 0.5px solid #2A9D8F;
+  border-radius: 20px;
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.formBox_checkboxBox_specialist p {
+  margin: 1px 0 7px;
+  line-height: 18px;
+}
+
+.disabledText {
+  opacity: 0.5; /* Уменьшение прозрачности текста */
+}
+
+.disabledBox {
+  border-color: var(--color-main-light); /* Полупрозрачная рамка */
+  pointer-events: none; /* Отключить клики */
+}

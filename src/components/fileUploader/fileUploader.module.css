@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 56.5px;
+  padding: 0 auto;
 }
 
 .previewContainer {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
