@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import s from "./languageSwitcher.module.css";
-// import flagEN from '../../assets/flags/en.svg';
+import flagEN from '../../assets/flags/en.svg';
 import flagME from '../../assets/flags/me.svg';
 import flagBA from '../../assets/flags/ba.svg';
 import flagRS from '../../assets/flags/rs.svg';
@@ -10,7 +10,7 @@ import flagFR from '../../assets/flags/fr.svg';
 
 
 const languages = [
-  // { code: "en", name: "English", flag: flagEN },
+  { code: "en", name: "English", flag: flagEN },
   { code: "me", name: "Montenegro", flag: flagME },
   { code: "ba", name: "Bosnia", flag: flagBA },
   { code: "rs", name: "Serbia", flag: flagRS },
