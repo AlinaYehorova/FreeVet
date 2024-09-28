@@ -182,7 +182,7 @@ const L_userRolePage = () => {
                   </span>
                 </span>
               </div>
-              <span className={isUserRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle /></span>
+              <span className={isVetRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle backgroundColor={'white'}/></span>
             </span>
           </div>
 
@@ -246,7 +246,7 @@ const L_userRolePage = () => {
                   Я - зоопсихолог
                 </span>
               </span>
-              <span className={isUserRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle text="Специалист"/></span>
+              <span className={isUserRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle text="Специалист" backgroundColor={'white'}/></span>
             </div>
           </div>
         </div>

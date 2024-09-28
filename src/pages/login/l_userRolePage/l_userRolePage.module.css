@@ -115,3 +115,7 @@
   border-color: var(--color-main-light); /* Полупрозрачная рамка */
   pointer-events: none; /* Отключить клики */
 }
+
+.l_userRolePage button {
+  margin-bottom: 2%;
+}
