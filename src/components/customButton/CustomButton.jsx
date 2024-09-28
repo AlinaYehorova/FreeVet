@@ -6,25 +6,27 @@ const CustomButton = ({
   backgroundColor,
   border,
   padding,
-  text = 'Submit',
-  link = '/',
+  text = "Submit",
+  link = "/",
   color,
   disabled, // передаём disabled как проп
+  customStyle = {}, // Добавлен новый проп для передачи любых стилей
 }) => {
   // Проверяем наличие родительского класса `disabled`
   const buttonClasses = disabled ? `${s.button} ${s.disabled}` : s.button;
 
   return (
     <Link
-      to={disabled ? '#' : link} // Блокируем переход, если кнопка неактивна
+      to={disabled ? "#" : link} // Блокируем переход, если кнопка неактивна
       className={buttonClasses} // Применяем классы с учётом состояния
       style={{
-        backgroundColor: disabled ? backgroundColor  : backgroundColor || 'var(--color-main)', // Цвет для неактивного состояния
-        border: border || 'none',
-        padding: padding || '16px 51px',
-        color: color || 'var(--color-text-white)',
+        backgroundColor: disabled ? backgroundColor : backgroundColor || "var(--color-main)", // Цвет для неактивного состояния
+        border: border || "none",
+        padding: padding || "16px 51px",
+        color: color || "var(--color-text-white)",
         lineHeight: 1.1,
-        pointerEvents: disabled ? 'none' : 'auto', // Отключаем взаимодействие
+        pointerEvents: disabled ? "none" : "auto", // Отключаем взаимодействие
+        ...customStyle, // Объединяем с переданными стилями
       }}
     >
       {text}

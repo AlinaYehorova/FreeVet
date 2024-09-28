@@ -1,0 +1,29 @@
+.formHeader {
+  display: flex;
+  width: 335px;
+  position: relative;
+}
+
+.formHeader_leftArrowBtn {
+  background: transparent;
+  border: none;
+  align-self: start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.formHeader_leftArrowBtn {
+  background: transparent;
+  border: none;
+  align-self: start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.formHeader h2 {
+  font-weight: 300;
+  font-size: 22px;
+  margin: 0 auto;
+}

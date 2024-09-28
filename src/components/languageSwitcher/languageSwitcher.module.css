@@ -4,7 +4,6 @@
     align-items: center;
   }
  
-  
   .button {
     background-color:var(--color-main-light); 
     border: 2px solid transparent;
