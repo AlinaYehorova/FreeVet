@@ -2,11 +2,10 @@ import s from "./l_registrationPage.module.css";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import leftArrow from "../../../assets/left-arrow.svg";
 import CustomInput from "../../../components/customInput/CustomInput";
 import CustomButton from "../../../components/customButton/CustomButton";
 import FileUploader from "../../../components/fileUploader/FileUploader";
+import FormHeader from "../../../components/formHeader/FormHeader";
 
 const L_registrationPage = () => {
   const [image, setImage] = useState(null);
@@ -49,12 +48,9 @@ const L_registrationPage = () => {
   return (
     <form className={s.l_registrationPage} onSubmit={handleSubmit(onSubmit)}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <div className={s.formHeader}>
-          <Link to="/" className={s.formHeader_leftArrowBtn}>
-            <img src={leftArrow} alt="arrow to left side" />
-          </Link>
-          <h2>Создать новый аккаунт</h2>
-        </div>
+        <FormHeader path="/" headerPadding={"0 0 15px 0"}>
+          Создать новый аккаунт
+        </FormHeader>
 
         {/* Компонент загрузки изображения */}
         <FileUploader maxFiles={1} boxSize={72} borderRadius={15} />
@@ -65,9 +61,9 @@ const L_registrationPage = () => {
           Имя <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
-          {...register("name", { 
+          {...register("name", {
             required: "Имя обязательно",
-            minLength: { value: 2, message: "Минимум 2 символа" }
+            minLength: { value: 2, message: "Минимум 2 символа" },
           })}
           placeholder="Ваше имя"
           width={335}
@@ -80,9 +76,9 @@ const L_registrationPage = () => {
           Телефон <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
-          {...register("phone", { 
-            required: "Телефон обязателен", 
-            pattern: { value: /^\+?[0-9]{10,}$/, message: "Введите корректный номер телефона" } 
+          {...register("phone", {
+            required: "Телефон обязателен",
+            pattern: { value: /^\+?[0-9]{10,}$/, message: "Введите корректный номер телефона" },
           })}
           placeholder="+"
           width={335}
@@ -94,7 +90,7 @@ const L_registrationPage = () => {
       {/* Кнопка отправки */}
       <div className={s.btnPrivacy_box}>
         <CustomButton
-        link = '/verification'
+          link="/verification"
           type="submit" // Убедитесь, что это submit-кнопка
           text="Отправить код"
           padding="16px 78px"
