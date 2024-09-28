@@ -116,6 +116,6 @@
   pointer-events: none; /* Отключить клики */
 }
 
-.l_userRolePage button {
-  margin-bottom: 2%;
+.l_userRolePage a {
+  margin: 10% 0 5%;
 }

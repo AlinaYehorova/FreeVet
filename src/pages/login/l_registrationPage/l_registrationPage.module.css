@@ -29,6 +29,10 @@
   margin: 0 auto;
 }
 
+.btnPrivacy_box {
+  margin: 10% 0 5%;
+}
+
 .privacyPolicy {
   text-align: center;
   color: #595959;

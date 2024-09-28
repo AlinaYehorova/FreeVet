@@ -92,7 +92,7 @@ const L_registrationPage = () => {
       </div>
 
       {/* Кнопка отправки */}
-      <div>
+      <div className={s.btnPrivacy_box}>
         <CustomButton
         link = '/verification'
           type="submit" // Убедитесь, что это submit-кнопка
