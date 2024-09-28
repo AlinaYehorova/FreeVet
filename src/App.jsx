@@ -9,10 +9,6 @@ import L_vetVerificationPage from './pages/login/l_vetVerificationPage/L_vetVeri
 import MainPage from './pages/mainPage/MainPage';
 
 
-
-
-
-
 function App() {
   return (
     <div className='globalContainer'>
