@@ -7,7 +7,8 @@ const CustomStickTitle = ({
   padding,
   text = 'Пользователь', 
   color,
-  borderRadius 
+  borderRadius,
+  style,
 }) => {
   return (
     <div 
@@ -18,7 +19,9 @@ const CustomStickTitle = ({
         padding: padding || '5px 15px',
         color: color || 'var(--color-main)', 
         lineHeight: 1.1,
-        borderRadius: borderRadius || '10px' 
+        borderRadius: borderRadius || '10px' ,
+        ...style
+
       }}
     >
       {text}
