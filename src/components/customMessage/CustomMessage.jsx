@@ -28,7 +28,7 @@ const CustomMessage = ({ questionNumber, images, animalInfo, message }) => {
                     <div className={s.animalInfo}>
                     <div className={s.animalTitle}>
                         <h3 className="text-lg font-medium mb-2">{animalInfo}</h3>
-                        <CustomStickTitle border={'0.5px solid var(--color-orange)'} color={'black'} text={'Бездомное животное'} className={s.italicLight} />
+                        <CustomStickTitle border={'0.5px solid var(--color-orange)'} color={'black'} text={'Бездомное животное'} style={{fontWeight: 300, fontStyle: 'italic'}} />
                     </div>
                     
                     <p>{message}</p>
