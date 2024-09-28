@@ -1,0 +1,56 @@
+@import '../../App.css';
+
+.container {
+    max-width: 375px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    border-radius: var(--border-radius-middle);
+    padding: 7px;
+}
+
+.questionBlock {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0px 10px 0px;
+
+}
+
+.questionBlock h2 {
+    font-size: 16px;
+    color: var(--color-main);
+    font-weight: 300;
+}
+
+.imageBlock {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 9px;
+}
+
+.imageBlock img {
+    width: 104px;
+    height: 104px;
+    border-radius: var(--border-radius-small);
+    object-fit: cover;
+}
+
+.animalInfo {
+    font-style: italic;
+    font-weight: 200;
+}
+.animalTitle {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    
+}
+
+.animalTitle h3 {
+    font-size: 14px;
+    font-weight: 200;
+}
+
