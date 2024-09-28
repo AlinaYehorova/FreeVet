@@ -51,7 +51,7 @@
   min-width: 351px;
   padding: 9px 22px 9px 15px;
   border: 0.5px solid #2A9D8F;
-  border-radius: 20px;
+  border-radius: 8px;
   position: relative;
 }
 
@@ -97,7 +97,7 @@
   min-width: 351px;
   padding: 9px 22px 9px 15px;
   border: 0.5px solid #2A9D8F;
-  border-radius: 20px;
+  border-radius: 8px;
   position: relative;
   margin-bottom: 17px;
 }
