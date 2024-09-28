@@ -4,7 +4,7 @@ import L_authorizationPage from './pages/login/l_authorizationPage/L_authorizati
 import L_registrationPage from './pages/login/l_registrationPage/L_registrationPage';
 import L_verificationPage from './pages/login/l_verificationPage/L_verificationPage';
 import L_userRolePage from './pages/login/l_userRolePage/L_userRolePage';
-import L_createVetBookPage from './pages/login/l_createVetBookPage/L_createVetBookPage';
+import L_createVetBookPage from './pages/login/l_createVetBookPage/l_createVetBookPage';
 import L_vetVerificationPage from './pages/login/l_vetVerificationPage/L_vetVerificationPage';
 import MainPage from './pages/mainPage/MainPage';
 
