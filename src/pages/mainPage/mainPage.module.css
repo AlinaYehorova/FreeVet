@@ -3,4 +3,5 @@
     justify-content: flex-start; 
     height: 100vh;
     overflow-y: auto; 
+    padding-bottom: 110px;
   }
