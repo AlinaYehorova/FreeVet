@@ -19,6 +19,7 @@
   padding-bottom: 8px;
 }
 .codeText span {
+  font-size: 16px;
   color: var(--color-main);
 }
 .form {
@@ -55,4 +56,29 @@
 .requestCodeBox {
   width: 60%;
   padding-top: 6px;
+  display: flex;
+  gap: 4px;
+}
+.requestCodeBox button {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-input-bg-grey);
+}
+.button {
+  padding: 16px 78px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 60px;
+  background-color: var(--color-main);
+  border: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: white;
+  margin: 67px 0;
+}
+.button:disabled {
+  cursor: default;
+  background-color: var(--color-main-light);
+}
+.requestCodeError {
+    padding-top: 5px;
 }
