@@ -10,7 +10,7 @@ import Paw from '../../assets/paw.png';
 
 const Footer = () => {
   const links = [
-    { icon: PlusWhite, label: 'Главная', path: '/home' },
+    { icon: PlusWhite, label: 'Главная', path: '/main' },
     { icon: Profile, label: 'Профиль', path: '/profile' },
     { icon: Vectore, label: 'Поддержать', path: '/donate' },
     { icon: Paw, label: 'О сервисе', path: '/service' },
