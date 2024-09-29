@@ -183,6 +183,7 @@ const L_userRolePage = () => {
                 </span>
               </div>
               <span className={isVetRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle backgroundColor={'white'}/></span>
+              <span className={isVetRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle backgroundColor={'white'}/></span>
             </span>
           </div>
 

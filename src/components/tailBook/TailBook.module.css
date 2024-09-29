@@ -1,0 +1,35 @@
+.tailBook {
+  max-width: 350px; 
+  margin: 0 auto;  
+  text-align: center;  
+  display: flex;
+  justify-content: space-around;
+}
+
+.logoContainer {
+   margin-bottom: 20px; 
+}
+
+.logo {
+  padding-top:10px;
+  height: auto;  
+}
+
+.socialIcons {
+  display: flex;  
+  justify-content: center;  
+  gap: 18px;
+}
+
+.socialIcons img {
+  width: 40px; 
+  height: 40px; 
+  transition: transform 0.2s; 
+}
+
+.socialIcons img:hover {
+  transform: scale(1.2);
+}
+
+
+
