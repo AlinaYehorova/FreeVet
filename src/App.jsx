@@ -7,11 +7,14 @@ import L_userRolePage from './pages/login/l_userRolePage/L_userRolePage';
 import L_createVetBookPage from './pages/login/l_createVetBookPage/L_createVetBookPage';
 import L_vetVerificationPage from './pages/login/l_vetVerificationPage/L_vetVerificationPage';
 import MainPage from './pages/mainPage/MainPage';
+import ScrollToTop from './components/scrollToTop/ScrollToTop';
+
 
 
 function App() {
   return (
     <div className='globalContainer'>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<L_authorizationPage/>} />
         <Route path="/register" element={<L_registrationPage/>} />

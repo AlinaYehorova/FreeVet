@@ -37,3 +37,22 @@
 .footerIcon {
   margin-bottom: 3px;
 }
+
+.scrollTopButton {
+  position: fixed;
+  bottom: 200px;
+  right: 200px;
+  padding: 120px 150px;
+  background-color: #007bff;
+  width: 500px;
+  height: 200px;
+  color: rgb(213, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
