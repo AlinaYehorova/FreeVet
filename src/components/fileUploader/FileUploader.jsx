@@ -3,13 +3,17 @@ import s from './fileUploader.module.css';
 import close from '../../assets/close.svg';
 import plus from '../../assets/plus.svg';
 
-const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload }) => {
+const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = () => {} }) => {
   const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null); // создаем реф для input
 
   useEffect(() => {
-    // Вызываем onUpload с текущими файлами каждый раз, когда они изменяются
-    onUpload(files);
+    // Проверяем, является ли onUpload функцией, перед тем как вызывать её
+    if (typeof onUpload === 'function') {
+      onUpload(files);
+    } else {
+      console.error('onUpload is not a function');
+    }
   }, [files, onUpload]);
 
   const handleFileUpload = (event) => {

@@ -256,7 +256,7 @@ const L_userRolePage = () => {
             onClick={handleSubmit}
             text="Сохранить"
             padding="16px 78px"
-            link={roleBasedLink} // Используем динамическую ссылку
+            link="/verification/role/user/create-vetbook" // Используем динамическую ссылку
             disabled={!isAnyRoleSelected}  
           />
         </div>
