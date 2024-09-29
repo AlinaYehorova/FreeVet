@@ -1,0 +1,62 @@
+.statistics {
+  max-width: 375px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.statistics h2 {
+  font-size: 30px; 
+  margin-bottom: 16px; 
+  color:var(--color-main);
+  font-style: bold; 
+}
+
+.stats {
+  display: flex;  
+  justify-content:center;
+  flex-wrap: no-wrap;
+}
+
+.statItem p {
+  font-size: 10px;
+  color: #ffffff;
+   margin-top: -11px;
+  line-height: 130%;
+}
+
+.statItem {
+  background-color:var(--color-main);  
+  border-radius: 50%;  
+  padding: 14px; 
+  margin: 4px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;  
+  justify-content: center; 
+  gap:0px; 
+  width: 110px;
+  height: 110px;
+  transition: transform 0.2s; 
+}
+
+.statItem:hover {
+  transform: scale(1.1);
+}
+
+.statItem span {
+  font-family: 'Nunito', sans-serif; 
+  font-size: 40px;  
+  font-weight: bold; 
+  color: #ffffff; 
+}
+
+
+.statistics h3 {
+  font-size: 20px; 
+  margin-bottom: 16px; 
+  color:var(--color-main);
+  margin-top: 11px;
+  text-align: center;
+  align-items: center;
+}

@@ -15,6 +15,7 @@
   margin-bottom: 20px;
   line-height: 0.9;
   color: var(--color-text-white);
+  animation: changeTitle 2s ease-out;
 }
 
 .description {
@@ -54,4 +55,15 @@
   top: 78%;
   transform: translateY(-50%);
   max-width: 105px;
+}
+
+@keyframes changeTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
