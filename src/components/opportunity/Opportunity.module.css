@@ -85,7 +85,7 @@
   
 }
 
-.boxcard h3,p{
+.boxcard h3,.boxcard p{
 color:var(--color-main);
 font-size: 12px;
 font-weight: 600;

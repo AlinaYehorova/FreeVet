@@ -1,0 +1,20 @@
+.lineHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 11px 0 22px;
+  width: 335px;
+}
+
+.line {
+  height: 8px;
+  width: 100%;
+}
+
+.left {
+  border-radius: 5px 0 0 5px;
+}
+
+.right {
+  border-radius: 0 5px 5px 0;
+}

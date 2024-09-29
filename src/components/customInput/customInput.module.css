@@ -1,3 +1,4 @@
 .customInput {
   display: inline-block;
+  outline-color: var(--color-main);
 }

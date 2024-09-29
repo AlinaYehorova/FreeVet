@@ -15,19 +15,24 @@ const L_createVetBookPage = () => {
     formState: { errors, isValid },
     reset,
   } = useForm({
-    mode: "onChange", // Включаем проверку на каждом изменении
+    mode: "onChange", // Проверка на каждом изменении
   });
+
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+
+  // Функция для обновления состояния загруженных файлов
+  const onUpload = (files) => {
+    setUploadedFiles(files);
+  };
 
   const onSubmit = async (data) => {
     try {
       const formData = new FormData();
-      formData.append("petName", data.name);
-      formData.append("petArt", data.phone);
-      formData.append("petWeight", data.phone);
-      formData.append("petGender", data.phone);
-      if (image) {
-        formData.append("image", image);
-      }
+      formData.append("petName", data.petName);
+      formData.append("petArt", data.petArt);
+      formData.append("petWeight", data.petWeight);
+      formData.append("petGender", data.petGender);
+      uploadedFiles.forEach(file => formData.append("images", file));
 
       await axios.post("/", formData, {
         headers: {
@@ -36,11 +41,17 @@ const L_createVetBookPage = () => {
       });
       // Сброс полей формы после успешной отправки
       reset();
-      setImage(null);
+      setUploadedFiles([]);
     } catch (error) {
       console.error("Ошибка при отправке формы:", error);
     }
   };
+
+  // Проверяем, активна ли кнопка "Создать"
+  const isCreateButtonDisabled = uploadedFiles.length === 0 || !isValid;
+
+  // Проверяем, активна ли кнопка "Не создавать"
+  const isCancelButtonDisabled = uploadedFiles.length > 0 || isValid;
 
   return (
     <div className={s.l_createVetBookPage}>
@@ -63,18 +74,19 @@ const L_createVetBookPage = () => {
             required: "Имя обязательно",
             minLength: { value: 2, message: "Минимум 2 символа" },
           })}
+          color={'var(--color-text-dark)'}
           placeholder="Имя любимца"
           borderColor="var(--color-main)"
           width={328}
         />
         {/* Ошибка имени */}
-        {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
+        {errors.petName && <p style={{ color: "red" }}>{errors.petName.message}</p>}
+        
         <p className={s.addPhoto_p} style={{ marginTop: "8px", textAlign: "left" }}>
           Добавить фото<span style={{ color: "#2A9D8F" }}>*</span>
         </p>
-        <span style={{ alignSelf: "self-start" }}>
-          <FileUploader maxFiles={3} boxSize={104} borderRadius={20} />
-        </span>
+        <FileUploader maxFiles={3} boxSize={104} borderRadius={20} onUpload={onUpload} />
+        
         <label style={{ alignSelf: "start" }}>
           Вид животного <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
@@ -83,26 +95,30 @@ const L_createVetBookPage = () => {
             required: "Вид животного обязательно",
             minLength: { value: 2, message: "Минимум 2 символа" },
           })}
+          color={'var(--color-text-dark)'}
           placeholder="Вид животного"
           borderColor="var(--color-main)"
           width={328}
         />
         {/* Ошибка имени */}
-        {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
+        {errors.petArt && <p style={{ color: "red" }}>{errors.petArt.message}</p>}
+        
         <label style={{ alignSelf: "start" }}>
           Примерный вес животного <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("petWeight", {
-            required: "Вec животного обязательно",
+            required: "Вес животного обязательно",
             minLength: { value: 2, message: "Минимум 2 символа" },
           })}
+          color={'var(--color-text-dark)'}
           placeholder="Вес животного"
           borderColor="var(--color-main)"
           width={153}
         />
         {/* Ошибка имени */}
-        {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
+        {errors.petWeight && <p style={{ color: "red" }}>{errors.petWeight.message}</p>}
+
         <label style={{ alignSelf: "start" }}>
           Пол животного <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
@@ -111,19 +127,33 @@ const L_createVetBookPage = () => {
             required: "Пол животного обязательно",
             minLength: { value: 2, message: "Минимум 2 символа" },
           })}
+          color={'var(--color-text-dark)'}
           placeholder="Пол животного"
           borderColor="var(--color-main)"
           width={153}
         />
         {/* Ошибка имени */}
-        {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
+        {errors.petGender && <p style={{ color: "red" }}>{errors.petGender.message}</p>}
+
         <p className={s.vetBook_description}>
           Ветеринарная книжка -<br></br>это цифровая версия паспорта животного <br></br>с полезными
           функциями,<br></br>упрощающими процесс заботы
         </p>
         <div className={s.btnBox}>
-          <CustomButton text="Не создавать"/>
-          <CustomButton text="Создать"/>
+          <CustomButton 
+            link="/main" 
+            customStyle={{ whiteSpace: 'nowrap' }} 
+            padding={'16px 34px'} 
+            text="Не создавать" 
+            disabled={isCancelButtonDisabled} // Изменено условие
+          />
+          <CustomButton 
+            type="submit" 
+            disabled={isCreateButtonDisabled} 
+            customStyle={{ whiteSpace: 'nowrap' }} 
+            padding={'16px 53px'} 
+            text="Создать" 
+          />
         </div>
       </form>
     </div>
