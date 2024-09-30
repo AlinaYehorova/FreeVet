@@ -8,6 +8,7 @@ import L_createVetBookPage from './pages/login/l_createVetBookPage/L_createVetBo
 import L_vetVerificationPage from './pages/login/l_vetVerificationPage/L_vetVerificationPage';
 import MainPage from './pages/mainPage/MainPage';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
+import L_vetCodePage from './pages/login/l_vetCodePage/L_vetCodePage';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/verification/role" element={<L_userRolePage/>} />
         <Route path="/verification/role/user/create-vetbook" element={<L_createVetBookPage/>} />
         <Route path="/verification/role/vet/vet-verification" element={<L_vetVerificationPage/>} />
+        <Route path="/verification/role/vet/vet-verification/code" element={<L_vetCodePage/>} />
         <Route path="/main" element={<MainPage/>} />
       </Routes>
     </div>

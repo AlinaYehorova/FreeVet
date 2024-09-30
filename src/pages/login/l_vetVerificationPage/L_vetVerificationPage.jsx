@@ -213,6 +213,7 @@ const L_vetVerificationPage = () => {
             disabled={isCancelButtonDisabled} // Активируем кнопку "Отмена", если форма заполнена
           />
           <CustomButton 
+            link="/verification/role/vet/vet-verification/code"
             type="submit" 
             disabled={isCreateButtonDisabled} 
             customStyle={{ whiteSpace: 'nowrap' }} 
