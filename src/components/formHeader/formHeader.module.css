@@ -1,25 +1,14 @@
 .formHeader {
   display: flex;
   width: 335px;
+  align-items: center;
   position: relative;
 }
 
 .formHeader_leftArrowBtn {
   background: transparent;
   border: none;
-  align-self: start;
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.formHeader_leftArrowBtn {
-  background: transparent;
-  border: none;
-  align-self: start;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .formHeader h2 {

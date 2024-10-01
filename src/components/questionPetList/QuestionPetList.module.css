@@ -1,0 +1,94 @@
+@import '../../App.css';
+
+.container {
+    max-width: 335px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: var(--border-green);
+    border-radius: var(--border-radius-small);
+    padding: 10px;
+}
+
+.questionTitle {
+    color: var(--color-main);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.categoriesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.categoriesTitle {
+    font-weight: 300;
+    font-size: 16px;
+    margin-right: 20px;
+    
+}
+
+.categoriesTitleContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+.heartCircle {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    box-shadow: 0 1.5px 5px 1px rgba(0, 0, 0, 0.25)
+}
+
+.heartCircle svg {
+    position: absolute;
+    top: 6px;
+    right: 4px;
+}
+
+
+.green {
+    fill: var(--color-main);
+}
+
+.orange {
+    fill: var(--color-orange);
+}
+
+.categoryImages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.categoryImages img {
+    width: 97px; 
+    height: 97px; 
+    border-radius: var(--border-radius-small);
+    object-fit: cover;
+}
+
+.imageContainer {
+    position: relative; 
+    display: inline-block;
+}
+.circle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: 0.5px solid #2A9D8F;
+    border-radius: 50%;
+    right: -3px; 
+    bottom: -3px; 
+    z-index: 1; 
+  }
+
+  .selected {
+    background-color: var(--color-main); 
+  }

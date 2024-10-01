@@ -32,7 +32,7 @@ const L_vetCodePage = () => {
   return (
     <div className={s.l_verificationPage}>
       <h2>Верификация</h2>
-      <LineHeader showMiddleLine={false} background={{ left: "var(--color-main)", right: "var(--color-main)" }} />
+      <LineHeader showMiddleLine={false}  right={"var(--color-main)"}  />
       <h5>
         Похоже, что Вы еще не авторизованы <br />в сервисе в качестве специалиста :(
       </h5>

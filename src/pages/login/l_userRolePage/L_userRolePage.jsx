@@ -1,12 +1,11 @@
 import s from "./l_userRolePage.module.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import leftArrow from "../../../assets/left-arrow.svg";
 import CustomButton from "../../../components/customButton/CustomButton";
 import CustomCheckbox from "../../../components/customCheckbox/CustomCheckbox";
 import CustomStickTitle from '../../../components/customStickTitle/CustomStickTitle';
+import FormHeader from "../../../components/formHeader/FormHeader";
 
 const L_userRolePage = () => {
   const [userRoles, setUserRoles] = useState({
@@ -90,10 +89,7 @@ const L_userRolePage = () => {
   return (
     <div className={s.l_userRolePage}>
       <div className={s.formHeader}>
-        <Link to="/register" className={s.formHeader_leftArrowBtn}>
-          <img src={leftArrow} alt="arrow to left side" />
-        </Link>
-        <h2>Статус участника</h2>
+      <FormHeader path="/" fontSize={36}>Статус участника</FormHeader>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={s.formBox}>
