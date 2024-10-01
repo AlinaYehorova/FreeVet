@@ -23,9 +23,9 @@
   --border-radius-middle: 20px;
   --border-radius-large: 60px;
 
-  --border: 0.5px solid var(--color-main);
+  --border-green: 0.5px solid var(--color-main);
   --border: 0.5px solid var(--color-text-dark);
-  --border: 0.5px solid var(--color-orange);
+  --border-orange: 0.5px solid var(--color-orange);
 
   --box-shadow: 0 2px 7px 2px #00000040;
 
