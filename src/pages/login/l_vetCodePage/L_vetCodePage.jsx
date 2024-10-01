@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import LineHeader from "../../../components/lineHeader/LineHeader";
 import useVerificationCode from "../../../customHooks/useVerificationCode";
 import CodeInputBox from "../../../components/codeInputBox/CodeInputBox";
-import { useState } from "react";
 import CustomButton from "../../../components/customButton/CustomButton";
 
 const L_vetCodePage = () => {

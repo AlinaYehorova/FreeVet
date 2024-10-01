@@ -1,0 +1,47 @@
+.closeQuestionPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.closeQuestionPage h2 {
+  font-weight: 300;
+  font-size: 36px;
+}
+.closeQuestionPage h5 {
+  padding-top: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+.closeQuestionText {
+  padding-top: 32px;
+  text-align: center;
+}
+.checkboxContainer {
+  padding-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  row-gap: 10px;
+  column-gap: 65px;
+  justify-content: center;
+  width: 100%;
+  max-width: 172px;
+  margin: 0 auto;
+}
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 13px;
+}
+.areaContainer p {
+  padding-top: 26px;
+  padding-bottom: 8px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
