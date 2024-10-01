@@ -122,7 +122,7 @@ const L_vetVerificationPage = () => {
           rows={8}
           cols={50}
           placeholder="Введите текст"
-          style={{borderColor: 'var(--color-input-bg-grey)'}}
+          style={{borderColor: 'var(--color-input-bg-grey)', backgroundColor: 'var(--color-text-white)'}}
         />
 
         {/* Email */}
