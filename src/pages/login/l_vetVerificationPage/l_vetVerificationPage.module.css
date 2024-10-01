@@ -40,13 +40,7 @@
 }
 
 .l_vetVerificationPage textarea {
-  border-radius: 20px;
-  border-color: var(--color-text-grey);
-  background: var(--color-text-white);
-  padding: 10px;
-  font-style: italic;
-  resize: none;
-  width: 335px;
+outline-color: var(--color-main);
 } 
 
 .checkboxBox {

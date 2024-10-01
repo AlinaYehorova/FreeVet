@@ -6,6 +6,7 @@ import CustomButton from "../../../components/customButton/CustomButton";
 import CustomCheckbox from "../../../components/customCheckbox/CustomCheckbox";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+import CustomTextarea from '../../../components/customTextarea/CustomTextarea';
 
 const L_vetVerificationPage = () => {
   const { 
@@ -115,12 +116,13 @@ const L_vetVerificationPage = () => {
         <label style={{ alignSelf: "start" }}>
           Также Вы можете указать дополнительную информацию
         </label>
-        <textarea
+        <CustomTextarea
           value={text}
           onChange={handleChange}
           rows={8}
           cols={50}
           placeholder="Введите текст"
+          style={{borderColor: 'var(--color-input-bg-grey)'}}
         />
 
         {/* Email */}
