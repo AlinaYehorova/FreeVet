@@ -16,8 +16,10 @@ const Opportunity = () => {
       <h2>Возможности</h2>
       <div className={s.featureCards}>
         <div className={s.cat}>
+          <Link to="/main/question/choice">
           <img src={OppAdd} alt="Картинка с котиком" className={s.cardImage} />
           <h4>Задать вопрос</h4>
+          </Link>
         </div>
         <div className={s.card}>
           <img src={OppNavKl} alt="кот в клинике" className={s.cardImage} />

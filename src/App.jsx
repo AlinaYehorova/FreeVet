@@ -9,6 +9,7 @@ import L_vetVerificationPage from './pages/login/l_vetVerificationPage/L_vetVeri
 import MainPage from './pages/mainPage/MainPage';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import L_vetCodePage from './pages/login/l_vetCodePage/L_vetCodePage';
+import Q_choiceAnimalPage from './pages/addQuestion/q_choiceAnimalPage/q_choiceAnimalPage';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/verification/role/vet/vet-verification" element={<L_vetVerificationPage/>} />
         <Route path="/verification/role/vet/vet-verification/code" element={<L_vetCodePage/>} />
         <Route path="/main" element={<MainPage/>} />
+        <Route path="/main/question/choice" element={<Q_choiceAnimalPage/>} />
       </Routes>
     </div>
    
