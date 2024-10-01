@@ -1,0 +1,45 @@
+.inputBox {
+  width: 100%;
+}
+.codeText {
+  padding-bottom: 8px;
+}
+.codeText span {
+  font-size: 16px;
+  color: var(--color-main);
+}
+.codeInputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 335px;
+  border: 1px solid var(--color-input-bg-grey);
+  padding: 16px;
+  border-radius: 15px;
+}
+.codeInput {
+  width: 16px;
+  height: 26px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-bottom: 3px solid var(--color-input-bg-grey);
+}
+.codeInput:focus {
+  outline: none;
+}
+.requestCodeBox {
+  width: 60%;
+  padding-top: 6px;
+  display: flex;
+  gap: 4px;
+}
+.requestCodeBox button {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-input-bg-grey);
+}
+.requestCodeError {
+  padding-top: 5px;
+}
