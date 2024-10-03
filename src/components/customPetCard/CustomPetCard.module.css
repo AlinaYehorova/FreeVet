@@ -20,8 +20,6 @@
 }
 
 .petImage {
-  width: 100%; /* Ширина 100% для адаптивности */
-  height: auto; /* Автоматическая высота для сохранения пропорций */
   object-fit: cover; /* Заполнение изображения без искажения */
   border-radius: var(--border-radius-small); /* Закругленные углы для изображения */
   margin-right: 15px; /* Отступ между изображением и текстом */
@@ -44,4 +42,18 @@
   font-size: 0.9em; /* Размер шрифта для информации */
   color: var(--color-text-grey); /* Цвет текста для информации */
   transition: all var(--transition-duration); /* Плавный переход для информации */
+}
+.petType {
+  display: block; /* Выводим тип на отдельной строке */
+}
+
+.petDetails {
+  display: block; /* Выводим вес и пол на отдельной строке */
+}
+
+.statusContainer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; 
+  width: 100%;  */
 }
