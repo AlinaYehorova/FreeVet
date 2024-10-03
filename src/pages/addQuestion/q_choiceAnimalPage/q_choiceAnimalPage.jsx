@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import s from "./q_choiceAnimalPage.module.css";
 import FormHeader from "../../../components/formHeader/FormHeader";
 import LineHeader from "../../../components/lineHeader/LineHeader";
@@ -14,25 +14,26 @@ const Q_choiceAnimalPage = () => {
   const [resetSelection, setResetSelection] = useState(false); // состояние для сброса выбранного животного с книжкой
   const navigate = useNavigate();
 
+  // Функция для выбора изображения животного
   const handleSelectImage = (type) => {
     setIsNewAnimalSelected(false); // сбрасываем выбор нового животного при выборе животного с цифровой книжкой
     setSelectedAnimalType(type); // обновляем состояние выбранного животного
     setResetSelection(false); // сбрасываем состояние сброса
   };
 
+  // Функция для выбора нового животного
   const handleNewAnimalClick = () => {
     setSelectedAnimalType(null); // сбрасываем выбор животного с книжкой
     setIsNewAnimalSelected(!isNewAnimalSelected); // переключаем выбор нового животного
     setResetSelection(true); // активируем сброс выбора животного с книжкой
   };
 
-  const handleButtonClick = () => {
-    if (selectedAnimalType === "digital") {
-      navigate("/link-to-digital"); // перенаправляем на страницу для животных с цифровой книжкой
-    } else if (isNewAnimalSelected) {
-      navigate("/link-to-non-digital"); // перенаправляем на страницу для животных без цифровой книжки
-    }
-  };
+  // Определяем ссылку для перехода на основе выбранного типа животного
+  const animalBasedLink = selectedAnimalType === "digital"
+    ? "/link-to-digital" // если выбрано животное с цифровой книжкой
+    : isNewAnimalSelected
+      ? "/main/question/description-animal" // если выбрано животное без книжки
+      : "#"; // если ничего не выбрано
 
   return (
     <div className={s.q_choiceAnimalPage}>
@@ -40,7 +41,9 @@ const Q_choiceAnimalPage = () => {
         <FormHeader path="/main" fontSize={36}>
           Задать вопрос
         </FormHeader>
+        <Link to={"/main"}>
         <img className={s.closeBtn} src={close} alt="close" />
+        </Link>
       </div>
       <LineHeader middle={"var(--color-line)"} />
       <h5>
@@ -88,7 +91,7 @@ const Q_choiceAnimalPage = () => {
       <CustomButton
         text="Продолжить"
         padding={"16px 120.5px"}
-        onClick={handleButtonClick}
+        link={animalBasedLink} // Передаем динамическую ссылку
         disabled={!selectedAnimalType && !isNewAnimalSelected} // кнопка активна только при выборе животного
       />
     </div>
