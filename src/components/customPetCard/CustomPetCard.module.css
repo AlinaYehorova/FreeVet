@@ -45,3 +45,17 @@
   color: var(--color-text-grey); /* Цвет текста для информации */
   transition: all var(--transition-duration); /* Плавный переход для информации */
 }
+.petType {
+  display: block; /* Выводим тип на отдельной строке */
+}
+
+.petDetails {
+  display: block; /* Выводим вес и пол на отдельной строке */
+}
+
+.statusContainer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; 
+  width: 100%;  */
+}
