@@ -9,32 +9,28 @@ import CustomButton from "../../../components/customButton/CustomButton";
 import plus from "../../../assets/plus.svg";
 
 const Q_choiceAnimalPage = () => {
-  const [selectedAnimalType, setSelectedAnimalType] = useState(null); // состояние для выбранного животного с вет. книжкой
-  const [isNewAnimalSelected, setIsNewAnimalSelected] = useState(false); // состояние для нового животного без вет. книжки
+  const [selectedAnimalType, setSelectedAnimalType] = useState(null); // состояние для хранения типа животного
+  const [isNewAnimalSelected, setIsNewAnimalSelected] = useState(false); // состояние для животных без вет. книжки
+  const [resetSelection, setResetSelection] = useState(false); // состояние для сброса выбранного животного с книжкой
   const navigate = useNavigate();
 
-  // Логика выбора животного с цифровой ветеринарной книжкой
   const handleSelectImage = (type) => {
-    if (isNewAnimalSelected) {
-      setIsNewAnimalSelected(false); // Сбросить выбор нового животного, если выбрано животное с вет. книжкой
-    }
-    setSelectedAnimalType(type); // Установить выбранное животное с цифровой книжкой
+    setIsNewAnimalSelected(false); // сбрасываем выбор нового животного при выборе животного с цифровой книжкой
+    setSelectedAnimalType(type); // обновляем состояние выбранного животного
+    setResetSelection(false); // сбрасываем состояние сброса
   };
 
-  // Логика выбора нового животного без цифровой ветеринарной книжки
   const handleNewAnimalClick = () => {
-    if (selectedAnimalType) {
-      setSelectedAnimalType(null); // Сбросить выбор животного с вет. книжкой, если выбрано новое животное
-    }
-    setIsNewAnimalSelected(!isNewAnimalSelected); // Переключить выбор нового животного
+    setSelectedAnimalType(null); // сбрасываем выбор животного с книжкой
+    setIsNewAnimalSelected(!isNewAnimalSelected); // переключаем выбор нового животного
+    setResetSelection(true); // активируем сброс выбора животного с книжкой
   };
 
-  // Логика обработки нажатия на кнопку "Продолжить"
   const handleButtonClick = () => {
     if (selectedAnimalType === "digital") {
-      navigate("/link-to-digital"); // Перенаправляем на страницу для животных с цифровой книжкой
+      navigate("/link-to-digital"); // перенаправляем на страницу для животных с цифровой книжкой
     } else if (isNewAnimalSelected) {
-      navigate("/link-to-non-digital"); // Перенаправляем на страницу для животных без цифровой книжки
+      navigate("/link-to-non-digital"); // перенаправляем на страницу для животных без цифровой книжки
     }
   };
 
@@ -50,8 +46,6 @@ const Q_choiceAnimalPage = () => {
       <h5>
         Выберите животное,<br></br>по которому хотите задать вопрос
       </h5>
-
-      {/* Список животных с цифровыми вет. книжками */}
       <QuestionPetList
         categories={[
           {
@@ -74,33 +68,23 @@ const Q_choiceAnimalPage = () => {
           },
         ]}
         onSelectImage={handleSelectImage}
-        selectedAnimalType={selectedAnimalType} // Добавляем текущий выбор
+        resetSelection={resetSelection}
       />
-
-      {/* Выбор нового животного без цифровой вет. книжки */}
       <div className={s.q_choiceAnimalPage_newAnimal_box}>
         <h5>
           Животные<br></br>без цифровых ветеринарных книжек
         </h5>
         <div className={s.q_choiceAnimalPage_newAnimal_boxBtnTitle}>
           <div
-            className={`${s.q_choiceAnimalPage_newAnimal_btnPlus} ${
-              isNewAnimalSelected ? s.selected : ""
-            }`}
+            className={s.q_choiceAnimalPage_newAnimal_btnPlus}
             onClick={handleNewAnimalClick}
           >
             <img src={plus} alt="plus" />
-            <div
-              className={`${s.circle} ${
-                isNewAnimalSelected ? s.selected : ""
-              }`}
-            ></div>
+            <div className={`${s.circle} ${isNewAnimalSelected ? s.selected : ""}`} />
           </div>
           <h5>Новое животное</h5>
         </div>
       </div>
-
-      {/* Кнопка продолжения */}
       <CustomButton
         text="Продолжить"
         padding={"16px 120.5px"}
