@@ -1,0 +1,47 @@
+.customPetCard {
+  display: block;
+  text-decoration: none;
+  border-radius: var(--border-radius-small); /* Закругленные углы */
+  overflow: hidden; /* Скрывает излишки */
+  transition: all var(--transition-duration); /* Плавный переход для всех свойств */
+  width: 100%; /* Занимает всю ширину родителя */
+  max-width: 375px; /* Максимальная ширина карточки */
+  margin: 10px; /* Отступы между карточками */
+}
+
+.customPetCard:hover {
+  transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+
+.customPetCardContent {
+  padding: 15px; /* Отступ внутри карточки */
+  display: flex; /* Используем flexbox для размещения изображения и деталей */
+  transition: all var(--transition-duration); /* Плавный переход для содержимого */
+}
+
+.petImage {
+  width: 100%; /* Ширина 100% для адаптивности */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+  object-fit: cover; /* Заполнение изображения без искажения */
+  border-radius: var(--border-radius-small); /* Закругленные углы для изображения */
+  margin-right: 15px; /* Отступ между изображением и текстом */
+  transition: all var(--transition-duration); /* Плавный переход для изображения */
+}
+
+.petDetails {
+  flex-grow: 1; /* Позволяет занимать оставшееся пространство */
+}
+
+.petName {
+  font-size: 1.2em; /* Размер шрифта для имени */
+  margin: 0; /* Убираем отступы */
+  transition: all var(--transition-duration); /* Плавный переход для имени */
+  color: var(--color-text-dark);
+}
+
+.petInfo {
+  margin: 5px 0; /* Отступы для информации о питомце */
+  font-size: 0.9em; /* Размер шрифта для информации */
+  color: var(--color-text-grey); /* Цвет текста для информации */
+  transition: all var(--transition-duration); /* Плавный переход для информации */
+}
