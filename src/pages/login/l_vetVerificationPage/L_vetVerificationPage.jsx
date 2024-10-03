@@ -40,7 +40,7 @@ const L_vetVerificationPage = () => {
   };
 
   // Обработчик изменений чекбокса
-  const handleUserRoleChange = (e) => {
+  const handleConfirmationChange = (e) => {
     setIsCheckboxChecked(e.target.checked);
   };
 
@@ -199,7 +199,7 @@ const L_vetVerificationPage = () => {
           <CustomCheckbox
             {...register("confirmation")}
             name="confirmation"
-            onChange={handleUserRoleChange}
+            onChange={handleConfirmationChange}
             checked={isCheckboxChecked}
           />{" "}
           <span>Достоверность представленных сведений подтверждаю</span>

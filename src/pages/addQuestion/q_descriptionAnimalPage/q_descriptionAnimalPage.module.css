@@ -1,0 +1,47 @@
+.q_descriptionAnimalPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 335px;
+  padding: 30px 0;
+  height: 100%;
+}
+.q_descriptionAnimalPage_header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+}
+
+.q_descriptionAnimalPage p {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.q_descriptionAnimalPage form {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin: 0 auto;
+  width: 335px;
+  height: 100%;
+}
+
+.q_descriptionAnimalPage label {
+  margin: 8px 0;  
+}
+.checkboxBox {
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  margin: 20px 0 47px;
+}
+
+.btnBox {
+margin-top: 88px;
+}

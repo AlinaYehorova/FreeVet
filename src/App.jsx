@@ -12,6 +12,7 @@ import L_vetCodePage from "./pages/login/l_vetCodePage/L_vetCodePage";
 import Q_choiceAnimalPage from "./pages/addQuestion/q_choiceAnimalPage/q_choiceAnimalPage";
 import Q_closeQuestionPage from "./pages/addQuestion/q_closeQuestionPage/Q_closeQuestionPage";
 import VetBookPage from "./pages/vetBookPage/VetBookPage";
+import Q_descriptionAnimalPage from './pages/addQuestion/q_descriptionAnimalPage/q_descriptionAnimalPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/verification/role/vet/vet-verification/code" element={<L_vetCodePage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/main/question/choice" element={<Q_choiceAnimalPage />} />
+        <Route path="/main/question/description-animal" element={<Q_descriptionAnimalPage />} />
         <Route path="/main/question/close" element={<Q_closeQuestionPage />} />
         <Route path="/vetbook" element={<VetBookPage />} />
 
