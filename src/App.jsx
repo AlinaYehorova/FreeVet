@@ -9,10 +9,11 @@ import L_vetVerificationPage from "./pages/login/l_vetVerificationPage/L_vetVeri
 import MainPage from "./pages/mainPage/MainPage";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import L_vetCodePage from "./pages/login/l_vetCodePage/L_vetCodePage";
-import Q_choiceAnimalPage from "./pages/addQuestion/q_choiceAnimalPage/q_choiceAnimalPage";
+import Q_choiceAnimalPage from "./pages/addQuestion/q_choiceAnimalPage/Q_choiceAnimalPage";
 import Q_closeQuestionPage from "./pages/addQuestion/q_closeQuestionPage/Q_closeQuestionPage";
 import VetBookPage from "./pages/vetBookPage/VetBookPage";
-import Q_descriptionAnimalPage from './pages/addQuestion/q_descriptionAnimalPage/q_descriptionAnimalPage';
+import Q_descriptionAnimalPage from './pages/addQuestion/q_descriptionAnimalPage/Q_descriptionAnimalPage';
+import Q_sendQuestionPage from './pages/addQuestion/q_sendQuestionPage/Q_sendQuestionPage'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/main" element={<MainPage />} />
         <Route path="/main/question/choice" element={<Q_choiceAnimalPage />} />
         <Route path="/main/question/description-animal" element={<Q_descriptionAnimalPage />} />
+        <Route path="/main/question/description-animal/send" element={<Q_sendQuestionPage />} />
         <Route path="/main/question/close" element={<Q_closeQuestionPage />} />
         <Route path="/vetbook" element={<VetBookPage />} />
 

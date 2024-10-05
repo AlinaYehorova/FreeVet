@@ -1,0 +1,62 @@
+.q_sendQuestionPage {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0 auto;
+  max-width: 335px;
+  padding: 30px 0;
+  height: 100%;
+}
+
+.q_sendQuestionPage_header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+}
+
+.q_sendQuestionPage_file_p {
+  align-self: start;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+
+.q_sendQuestionPage_fileBox .fileBox {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.q_sendQuestionPage_fileBox img, 
+.q_sendQuestionPage_fileBox video {
+width: 105px;
+height: 105px;
+object-fit: cover;
+border-radius: var(--border-radius-small);
+}
+
+.q_sendQuestionPage_description {
+  display: flex;
+  gap: 8px;
+  margin: 13px 8px 25px;
+  font-style: italic;
+}
+
+.q_sendQuestionPage_p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.q_sendQuestionPage textarea::placeholder {
+  font-style: italic;
+}
+
+.q_sendQuestionPage button {
+  white-space: nowrap;
+  margin-top: 81px;
+}

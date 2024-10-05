@@ -1,70 +1,61 @@
-import FormHeader from '../../../components/formHeader/FormHeader'
-import LineHeader from '../../../components/lineHeader/LineHeader'
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import close from '../../../assets/close.svg'
-import s from './q_descriptionAnimalPage.module.css'
+import { Link, useNavigate } from "react-router-dom";
+import FormHeader from '../../../components/formHeader/FormHeader';
+import LineHeader from '../../../components/lineHeader/LineHeader';
+import s from './q_descriptionAnimalPage.module.css';
 import FileUploader from '../../../components/fileUploader/FileUploader';
 import { useForm } from "react-hook-form";
 import CustomInput from '../../../components/customInput/CustomInput';
-import CustomButton from '../../../components/customButton/CustomButton';
 import CustomCheckbox from '../../../components/customCheckbox/CustomCheckbox';
+import close from '../../../assets/close.svg';
+import CustomButtonSubmit from "../../../components/customButtonSubmit/CustomButtonSubmit";
 
 const Q_descriptionAnimalPage = () => {
-  const [text, setText] = useState('');
   const [files, setFiles] = useState([]);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+  const navigate = useNavigate();
+  
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    reset,
-    watch,  // для наблюдения за состоянием полей
+    watch,
   } = useForm({
-    mode: "onChange", // Проверка на каждом изменении
+    mode: "onChange",
   });
 
-    // Обработчик изменения текста
-    const handleChange = (e) => setText(e.target.value);
-
-    // Обработчик загрузки файлов
-    const onUpload = (uploadedFiles) => {
-      setFiles(uploadedFiles);
-    };
-
-  const onSubmit = async (data) => {
-    try {
-      const formData = new FormData();
-      formData.append("petArt", data.petArt);
-      formData.append("petWeight", data.petWeight);
-      formData.append("petGender", data.petGender);
-      files.forEach(file => formData.append("images", file));
-
-      await axios.post("/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      // Сброс полей формы после успешной отправки
-      reset();
-      setFiles([]);
-    } catch (error) {
-      console.error("Ошибка при отправке формы:", error);
-    }
+  // Обработчик загрузки файлов
+  const onUpload = (uploadedFiles) => {
+    // Сохраняем файлы в стейт как URL с использованием createObjectURL
+    const fileData = uploadedFiles.map((file) => ({
+      data: URL.createObjectURL(file),
+      type: file.type
+    }));
+    setFiles(fileData);
   };
 
-  // Обработчик изменений чекбокса
+  const onSubmit = (data) => {
+    const formData = {
+      petArt: data.petArt,
+      petWeight: data.petWeight,
+      petGender: data.petGender,
+      isHomeless: isCheckboxChecked,
+      files: files // Передаем файлы как они есть
+    };
+
+    // Переход на страницу с передачей данных
+    navigate("/main/question/description-animal/send", { state: formData });
+  };
+
   const handleHomelessChange = (e) => {
     setIsCheckboxChecked(e.target.checked);
   };
 
-  // Слежение за полями формы
   const petArt = watch("petArt");
   const petWeight = watch("petWeight");
   const petGender = watch("petGender");
 
-  // Логика активации кнопки
-  const isFormValid = isValid && files.length > 0 && petArt && petWeight && petGender;
+  const isFormValid = isValid && petArt && petWeight && petGender;
 
   return (
     <div className={s.q_descriptionAnimalPage}>
@@ -137,10 +128,10 @@ const Q_descriptionAnimalPage = () => {
         </span>
         
         <div className={s.btnBox}>
-          <CustomButton
+          <CustomButtonSubmit
             text="Продолжить"
             padding={"16px 120.5px"}
-            disabled={!isFormValid} // Деактивация кнопки, если форма не валидна
+            disabled={!isFormValid}
           />
         </div>
       </form>
