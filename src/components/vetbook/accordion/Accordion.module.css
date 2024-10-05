@@ -61,7 +61,7 @@
     font-size: 14px;
     
   }
-  input {
+  .accordionSection input {
     
     max-width: 330px;
     min-width: 330px;
@@ -69,7 +69,7 @@
  
   }
   
-  input::placeholder{
+  .accordionSection input::placeholder{
     font-style: italic;
    
   }
