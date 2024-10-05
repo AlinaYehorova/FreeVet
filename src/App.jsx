@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import L_authorizationPage from "./pages/login/l_authorizationPage/L_authorizationPage";
@@ -13,9 +14,29 @@ import Q_choiceAnimalPage from "./pages/addQuestion/q_choiceAnimalPage/Q_choiceA
 import Q_closeQuestionPage from "./pages/addQuestion/q_closeQuestionPage/Q_closeQuestionPage";
 import VetBookPage from "./pages/vetBookPage/VetBookPage";
 import Q_descriptionAnimalPage from './pages/addQuestion/q_descriptionAnimalPage/Q_descriptionAnimalPage';
-import Q_sendQuestionPage from './pages/addQuestion/q_sendQuestionPage/Q_sendQuestionPage'
+import Q_sendQuestionPage from './pages/addQuestion/q_sendQuestionPage/Q_sendQuestionPage';
+
+
+import Loader from "./components/loader/Loader"; 
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true); 
+
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); 
+    }, 3000); 
+
+  
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />; 
+  }
+
+ 
   return (
     <div className="globalContainer">
       <ScrollToTop />
@@ -33,7 +54,6 @@ function App() {
         <Route path="/main/question/description-animal/send" element={<Q_sendQuestionPage />} />
         <Route path="/main/question/close" element={<Q_closeQuestionPage />} />
         <Route path="/vetbook" element={<VetBookPage />} />
-
       </Routes>
     </div>
   );
