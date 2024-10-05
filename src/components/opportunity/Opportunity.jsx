@@ -34,7 +34,7 @@ const Opportunity = () => {
         </div>
         <div className={s.boxcard}>
         <div className={s.toocard}>
-        <Link to="/verification/role/user/create-vetbook">
+        <Link to="/vetbook">
           <img src={OppVetBook} alt="Картинка с собакой" className={s.cardImage} />
           <h3>Ветеринарные книжки</h3>
           </Link>

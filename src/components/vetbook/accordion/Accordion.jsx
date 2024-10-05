@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CustomInput from '../../customInput/CustomInput';
-import FileUploader from '../../fileUploader/FileUploader'; // Импорт FileUploader
+import FileUploader from '../../fileUploader/FileUploader'; 
 import s from './Accordion.module.css';
 import icon from '../../../assets/Arrow_vet.svg'; 
 
@@ -36,7 +36,6 @@ const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInput
               </div>
             ))}
 
-            {/* Добавляем лейбл "Файлы" и компонент FileUploader с шириной 141px в секции "Клинический осмотр" */}
             {title === 'Клинический осмотр' && (
              <>
              <label>Файлы</label>

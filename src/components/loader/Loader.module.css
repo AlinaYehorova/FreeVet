@@ -1,0 +1,33 @@
+.loader {
+    position: relative;
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .paw {
+    position: absolute;
+    width: 40px; 
+    height: 40px;
+    z-index: 1;
+  }
+  
+  .loaderCircle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  @keyframes fade {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  

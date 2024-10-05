@@ -1,3 +1,4 @@
+import Loader from '../../components/loader/Loader'
 import Accordion from '../../components/vetbook/accordion/Accordion'
 import s from './vetBookPage.module.css'
 
