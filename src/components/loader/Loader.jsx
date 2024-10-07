@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import s from './Loader.module.css'; 
+import s from './loader.module.css'; 
 import pawImage from '../../assets/paw-loader.png'
 
 const Loader = () => {
