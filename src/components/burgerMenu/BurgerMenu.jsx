@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import s from './BurgerMenu.module.css'; 
+import s from './burgerMenu.module.css'; 
 import LanguageSwitcher from '../languageSwitcher/LanguageSwitcher';
 
 const BurgerMenu = () => {
