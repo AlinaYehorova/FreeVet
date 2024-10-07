@@ -1,4 +1,4 @@
-import s from './QuestionPetList.module.css';
+import s from './questionPetList.module.css';
 import { useState, useEffect } from 'react';
 
 const QuestionPetList = ({ categories, onSelectImage, resetSelection }) => {
