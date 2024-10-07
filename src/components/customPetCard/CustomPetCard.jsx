@@ -1,7 +1,7 @@
 // CustomPetCard.jsx
 import React from 'react';
 import '../../App.css';
-import styles from './CustomPetCard.module.css';
+import styles from './customPetCard.module.css';
 
 const CustomPetCard = ({ name, type, weight, gender, imageUrl, statusMessage, link, imageWidth, StatusComponent }) => {
   return (
