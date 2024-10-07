@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import s from './customTextarea.module.css';
 
 const CustomTextarea = forwardRef(({
-  value,
-  onChange,
   rows = 8,
   cols = 50,
   placeholder = 'Введите текст',
@@ -15,13 +13,12 @@ const CustomTextarea = forwardRef(({
   color,
   borderRadius,
   style,
+  ...rest // остальные пропсы для работы с react-hook-form
 }, ref) => {
   return (
     <div className={s.customTextarea}>
       <textarea
-        ref={ref} // добавлен forwardRef
-        value={value}
-        onChange={onChange}
+        ref={ref} // forwardRef для работы с react-hook-form
         rows={rows}
         cols={cols}
         placeholder={placeholder}
@@ -36,14 +33,13 @@ const CustomTextarea = forwardRef(({
           resize: 'none',
           ...style,
         }}
+        {...rest} // Spread для всех других пропсов (например, onChange, value)
       />
     </div>
   );
 });
 
 CustomTextarea.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func, // Теперь не обязательно
   rows: PropTypes.number,
   cols: PropTypes.number,
   placeholder: PropTypes.string,
@@ -57,8 +53,6 @@ CustomTextarea.propTypes = {
 };
 
 CustomTextarea.defaultProps = {
-  value: '',
-  onChange: () => {}, // Пустая функция по умолчанию, если onChange не передан
   rows: 8,
   cols: 50,
   placeholder: 'Введите текст',
