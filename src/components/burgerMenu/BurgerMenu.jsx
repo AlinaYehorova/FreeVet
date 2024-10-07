@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import s from './burgerMenu.module.css'; 
-import LanguageSwitcher from '../languageSwitcher/LanguageSwitcher';
+
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false); // Состояние для управления открытием меню
