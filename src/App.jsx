@@ -16,7 +16,7 @@ import VetBookPage from "./pages/vetBookPage/VetBookPage";
 import Q_descriptionAnimalPage from './pages/addQuestion/q_descriptionAnimalPage/Q_descriptionAnimalPage';
 import Q_sendQuestionPage from './pages/addQuestion/q_sendQuestionPage/Q_sendQuestionPage';
 import Q_confirmationPage from './pages/addQuestion/q_confirmationPage/Q_confirmationPage';
-
+import P_userPage from "./pages/profile/p_userPage/P_userPage";
 import Loader from "./components/loader/Loader"; 
 
 
@@ -56,6 +56,7 @@ function App() {
         <Route path="/main/question/confirm" element={<Q_confirmationPage />} />
         <Route path="/main/question/close" element={<Q_closeQuestionPage />} />
         <Route path="/vetbook" element={<VetBookPage />} />
+        <Route path="/profile" element={<P_userPage />} /> 
       </Routes>
     </div>
   );
