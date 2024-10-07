@@ -1,4 +1,4 @@
-import s from './Opportunity.module.css';
+import s from './opportunity.module.css';
 import OppAdd from '../../assets/opportunityImg/oppAdd.svg';
 import OppVetBook from '../../assets/opportunityImg/oppVetBook.svg';
 import OppNavKl from '../../assets/opportunityImg/oppNavKl.svg';
