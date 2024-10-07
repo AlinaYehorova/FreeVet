@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomInput from '../../customInput/CustomInput';
-import styles from './Accordion.module.css';
+import styles from './accordion.module.css';
 
 const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInputChange }) => {
   return (
