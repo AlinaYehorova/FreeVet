@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './CustomStickTitle.module.css';
+import s from './customStickTitle.module.css';
 
 const CustomStickTitle = ({
   backgroundColor,
