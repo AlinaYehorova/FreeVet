@@ -27,14 +27,15 @@
     object-fit: cover; /* Обрезаем изображение с сохранением пропорций */
     
   }
-  .question_box h6{
+  .question_box h6,.question_box2 h6{
         font-size: 30px;
         font-weight: 100;
     }
 
-    .question_box p{
+    .question_box p,.question_box2 p{
     color:var(--color-orange);
     font-size: 14px;
+    font-weight: 200;
     }
     .question_box{
         display: flex;
@@ -42,6 +43,16 @@
         gap:160px;
         margin-bottom: 5px;
     }
+    .question_box2{
+      display: flex;
+      align-items: center;
+      gap:71px;
+      margin-bottom: 15px;
+      margin-top: 10px;
+  }
+
+
+
 
   
   .userInfo {
