@@ -1,4 +1,4 @@
-import s from './TailBook.module.css';
+import s from './tailBook.module.css';
 import sendIcon from '../../assets/tailIcons/send.svg';  // Импортируем иконку send
 import instaIcon from '../../assets/tailIcons/insta.svg';  // Импортируем иконку Instagram
 import telegramIcon from '../../assets/tailIcons/teleg.svg';  // Импортируем иконку Telegram
