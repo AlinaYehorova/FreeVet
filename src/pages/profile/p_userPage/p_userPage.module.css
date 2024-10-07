@@ -1,0 +1,67 @@
+.p_userPage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    padding: 20px;
+    margin:0 auto;
+    max-width: 375px;
+  }
+  
+  .avatarContainer {
+    display: flex; 
+    flex-direction: column; /* Вертикальное расположение содержимого */
+    align-items: center; /* Центрируем содержимое */
+    margin-right: 20px; /* Отступ справа для фото */
+  }
+
+  .name_Container {
+    display: flex; 
+    flex-direction: row; /* Вертикальное расположение содержимого */
+    align-items: center; /* Центрируем содержимое */
+  }
+  
+  .avatar {
+    width: 160px; /* Ширина для изображения */
+    height: 160px; /* Высота для изображения */
+    border-radius: 10px;
+    object-fit: cover; /* Обрезаем изображение с сохранением пропорций */
+    
+  }
+  .question_box h6{
+        font-size: 30px;
+        font-weight: 100;
+    }
+
+    .question_box p{
+    color:var(--color-orange);
+    font-size: 14px;
+    }
+    .question_box{
+        display: flex;
+        align-items: center;
+        gap:160px;
+        margin-bottom: 5px;
+    }
+
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание для имени и роли */
+    align-items: flex-start; /* Выравнивание по левому краю */
+  }
+  
+  .userName {
+    font-size: 30px; /* Размер шрифта для имени */
+    margin-bottom: 10px; /* Отступ снизу для имени */
+  }
+  
+  .userRole {
+    background-color:var(--color-main); /* Цвет фона для овала */
+    border-radius: 20px; /* Радиус для овалов */
+    padding: 5px; /* Отступы для текста внутри овалов */
+    color: #ffffff; /* Цвет шрифта для роли */
+    font-size: 10px; /* Размер шрифта для роли */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
