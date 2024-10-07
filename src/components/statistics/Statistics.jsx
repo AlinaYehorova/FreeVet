@@ -1,4 +1,4 @@
-import s from './Statistics.module.css';
+import s from './statistics.module.css';
 
 const Statistics = () => {
   return (
