@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import CustomStickTitle from '../customStickTitle/CustomStickTitle';
-import s from './CustomMessage.module.css'
+import s from './customMessage.module.css'
 
 const CustomMessage = ({ questionNumber, images, animalInfo, message }) => {
     return (
