@@ -1,5 +1,7 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom"; // Импортируем useNavigate
+import { useForm } from "react-hook-form";
+import axios from "axios";
 import s from "./q_sendQuestionPage.module.css";
 import FormHeader from "../../../components/formHeader/FormHeader";
 import LineHeader from "../../../components/lineHeader/LineHeader";
@@ -9,8 +11,33 @@ import CustomButtonSubmit from "../../../components/customButtonSubmit/CustomBut
 
 const Q_sendQuestionPage = () => {
   const location = useLocation();
-  const { petArt, petWeight, petGender, isHomeless, files } =
-    location.state || {};
+  const navigate = useNavigate();
+  const { petArt, petWeight, petGender, isHomeless, files } = location.state || {};
+
+  const { register, handleSubmit, formState: { errors, isValid } } = useForm({
+    mode: "onChange"
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      const requestData = {
+        ...data,
+        petArt,
+        petWeight,
+        petGender,
+        isHomeless,
+        files
+      };
+       // Отправка данных через axios
+      await axios.post("/api/submit-question", requestData);
+      
+      // После успешной отправки формы перенаправляем пользователя
+      navigate("/main/question/confirm");
+    } catch (error) {
+      console.error("Ошибка при отправке вопроса", error);
+      alert("Ошибка при отправке вопроса");
+    }
+  };
 
   return (
     <div className={s.q_sendQuestionPage}>
@@ -23,15 +50,12 @@ const Q_sendQuestionPage = () => {
         </Link>
       </div>
       <LineHeader middle={"var(--color-main)"} right={"var(--color-main)"} />
-      <p className={s.q_sendQuestionPage_file_p}>
-        Добавленные фото и (или) видео
-      </p>
+      <p className={s.q_sendQuestionPage_file_p}>Добавленные фото и (или) видео</p>
       <div className={s.q_sendQuestionPage_fileBox}>
         {files && files.length > 0 ? (
           <div className={s.filesContainer}>
             {files.map((file, index) => (
               <div key={index} className={s.fileBox}>
-                {/* Проверка типа файла */}
                 {file.type.startsWith("image") ? (
                   <img src={file.data} alt={`uploaded-file-${index}`} />
                 ) : file.type.startsWith("video") ? (
@@ -55,21 +79,25 @@ const Q_sendQuestionPage = () => {
         </p>
       </div>
       <p className={s.q_sendQuestionPage_p}>Напишите Ваш вопрос</p>
-      <CustomTextarea 
-                // value={text}
-                // onChange={handleChange}
-                rows={8}
-                cols={50}
-                placeholder="Введите текст"
-                style={{borderColor: 'var(--color-input-bg-grey)', backgroundColor: 'var(--color-text-white)', height: '310px'}}
-      />
-              <div className={s.btnBox}>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <CustomTextarea
+          {...register("question", { required: "Поле обязательно для заполнения" })} 
+          rows={8}
+          cols={50}
+          placeholder="Введите текст"
+          style={{borderColor: 'var(--color-input-bg-grey)', backgroundColor: 'var(--color-text-white)', height: '310px'}}
+        />
+        {errors.question && <p className={s.errorText}>{errors.question.message}</p>}
+
+        <div className={s.btnBox}>
           <CustomButtonSubmit
             text="Отправить вопрос"
             padding={"16px 99.5px"}
-            // disabled={!isFormValid}
+            disabled={!isValid}
           />
         </div>
+      </form>
     </div>
   );
 };
