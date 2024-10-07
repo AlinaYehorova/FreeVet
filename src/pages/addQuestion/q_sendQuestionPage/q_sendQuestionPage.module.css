@@ -52,6 +52,11 @@ border-radius: var(--border-radius-small);
   margin-bottom: 8px;
 }
 
+.q_sendQuestionPage textarea {
+  font-style: italic;
+  outline-color: var(--color-main);
+}
+
 .q_sendQuestionPage textarea::placeholder {
   font-style: italic;
 }
