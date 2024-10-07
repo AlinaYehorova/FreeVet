@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CustomInput from '../../customInput/CustomInput';
 import FileUploader from '../../fileUploader/FileUploader'; 
-import s from './Accordion.module.css';
+import s from './accordion.module.css';
 import icon from '../../../assets/Arrow_vet.svg'; 
 
 const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInputChange }) => {
