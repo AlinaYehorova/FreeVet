@@ -1,7 +1,7 @@
   .burgerMenu {
-    position: absolute; 
-    right: 41%;
-    z-index: 1000; 
+    position: relative; 
+    z-index: 1; 
+    width: 335px;
   }
   
   
@@ -11,6 +11,8 @@
     flex-direction: column; /* Вертикальное расположение точек */
     align-items: center; /* Центрируем точки */
     margin: 10px; /* Отступ для размещения в углу */
+    position: absolute;
+    right: 0;
   }
   
   .dot {
