@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import s from "./CodeInputBox.module.css";
+import s from "./codeInputBox.module.css";
 
 const CodeInputBox = ({
   control,
