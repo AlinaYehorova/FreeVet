@@ -20,17 +20,29 @@ const Q_sendQuestionPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      const requestData = {
-        ...data,
-        petArt,
-        petWeight,
-        petGender,
-        isHomeless,
-        files
-      };
-       // Отправка данных через axios
-      await axios.post("/api/submit-question", requestData);
-      
+      const formData = new FormData();
+
+      // Добавляем текстовые поля формы в formData
+      formData.append("question", data.question);
+      formData.append("petArt", petArt);
+      formData.append("petWeight", petWeight);
+      formData.append("petGender", petGender);
+      formData.append("isHomeless", isHomeless);
+
+      // Добавляем файлы в formData
+      if (files && files.length > 0) {
+        files.forEach((file, index) => {
+          formData.append(`file_${index}`, file.data);
+        });
+      }
+
+      // Отправка данных через axios с правильными заголовками для formData
+      await axios.post("/api/submit-question", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       // После успешной отправки формы перенаправляем пользователя
       navigate("/main/question/confirm");
     } catch (error) {
