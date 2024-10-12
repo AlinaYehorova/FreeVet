@@ -3,6 +3,7 @@ import s from "./l_verificationPage.module.css";
 import FormHeader from "../../../components/formHeader/FormHeader";
 import useVerificationCode from "../../../customHooks/useVerificationCode";
 import CodeInputBox from "../../../components/codeInputBox/CodeInputBox";
+import texts from '../../../utils/ru_text';  // Импорт текстов
 
 const L_verificationPage = () => {
   const navigate = useNavigate();
@@ -31,9 +32,9 @@ const L_verificationPage = () => {
 
   return (
     <div className={s.l_verificationPage}>
-      <FormHeader path="/register">Проверка телефона</FormHeader>
+      <FormHeader path="/register">{texts.verificationPage.header}</FormHeader>
       <p className={s.enterCode}>
-        Пожалуйста введите полученный Вами <br /> на указанный телефон код
+        {texts.verificationPage.enterCode}
       </p>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <CodeInputBox
@@ -49,7 +50,7 @@ const L_verificationPage = () => {
           seconds={seconds}
         />
         <button className={s.button} type="submit" disabled={!isFormValid}>
-          Подтвердить
+          {texts.verificationPage.confirm}
         </button>
       </form>
     </div>

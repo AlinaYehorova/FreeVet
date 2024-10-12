@@ -1,6 +1,7 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import s from "./codeInputBox.module.css";
+import texts from '../../utils/ru_text'; // Импортируем текст
 
 const CodeInputBox = ({
   control,
@@ -17,7 +18,7 @@ const CodeInputBox = ({
   return (
     <div className={s.inputBox}>
       <p className={s.codeText}>
-        Код <span>&#42;</span>
+        {texts.codeInputBox.codeLabel} <span>&#42;</span>
       </p>
       <div className={s.codeInputs}>
         {Array.from({ length: 6 }).map((_, index) => (
@@ -46,19 +47,19 @@ const CodeInputBox = ({
         ))}
       </div>
       {errorVisible && codeError ? (
-        <p className={s.requestCodeError}>Вы ввели неправильный код! Попробуйте еще раз</p>
+        <p className={s.requestCodeError}>{texts.codeInputBox.requiredError}</p>
       ) : resendAvailable ? (
         <div className={s.requestCodeBox}>
           <p onClick={handleResendCode} className={s.resendCode}>
-            Не пришел код?
+            {texts.codeInputBox.resendText}
           </p>
           <button type="button" onClick={handleResendCode}>
-            Отправить код повторно
+            {texts.codeInputBox.resendButton}
           </button>
         </div>
       ) : (
         <div className={s.requestCodeBox}>
-          <p>Не пришел код? Запросить код повторно можно через {seconds} секунд</p>
+          <p>{texts.codeInputBox.resendWait.replace('{{seconds}}', seconds)}</p>
         </div>
       )}
     </div>

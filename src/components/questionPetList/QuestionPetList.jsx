@@ -1,5 +1,6 @@
 import s from './questionPetList.module.css';
 import { useState, useEffect } from 'react';
+import texts from '../../utils/ru_text'; // Импортируйте файл с текстами
 
 const QuestionPetList = ({ categories, onSelectImage, resetSelection }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -24,7 +25,7 @@ const QuestionPetList = ({ categories, onSelectImage, resetSelection }) => {
   return (
     <div className={s.container}>
       <h2 className={s.questionTitle}>
-        Животные <br /> с цифровыми ветеринарными книжками
+        {texts.questionPetList.title} <br /> {texts.questionPetList.subtitle}
       </h2>
       <div className="categoriesList">
         {categories.map((category, categoryIndex) => (

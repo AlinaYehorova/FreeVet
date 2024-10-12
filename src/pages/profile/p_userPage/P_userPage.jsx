@@ -6,11 +6,12 @@ import QuestionPetList from '../../../components/questionPetList/QuestionPetList
 import BurgerMenu from '../../../components/burgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 import Footer from '../../../components/footer/Footer.jsx';
+import texts from '../../../utils/ru_text';  // Импорт текстов
 
 const P_userPage = () => {
   const [files, setFiles] = useState([]);
   const [userInfo, setUserInfo] = useState({
-    name: '',
+    name: texts.userPage.userName,  // Имя пользователя теперь берется из текстов
     role: '',
     photo: avatarPlaceholder
   });
@@ -18,8 +19,9 @@ const P_userPage = () => {
   const fetchUserData = async () => {
     // Здесь должен быть запрос к API, чтобы получить данные пользователя
     const userData = {
-      name: 'Андрей Еремин',
-      role: 'volunteer',
+      // Используем имя пользователя из текстов
+      name: texts.userPage.userName, 
+      role: 'volunteer', // Здесь можно установить роль пользователя
       photo: avatarPlaceholder // Здесь должно быть изображение пользователя
     };
     setUserInfo(userData);
@@ -33,31 +35,25 @@ const P_userPage = () => {
     <div className={s.p_userPage}>
       <BurgerMenu />
       <div className={s.name_Container}>
-     
-      <div className={s.avatarContainer}>
-        <img 
-          src={files.length > 0 ? URL.createObjectURL(files[0]) : userInfo.photo} 
-          alt="Avatar" 
-          className={s.avatar} 
-        />
-       
-      </div>
-      <div className={s.userInfo}>
-        <div className={s.userName}>{userInfo.name}</div> {/* Имя пользователя */}
-        <div className={s.userRole}>
-           {userInfo.role === 'volunteer' ? 'Я - волонтер' : 'Волонтер'}
-          
+        <div className={s.avatarContainer}>
+          <img 
+            src={files.length > 0 ? URL.createObjectURL(files[0]) : userInfo.photo} 
+            alt="Avatar" 
+            className={s.avatar} 
+          />
         </div>
-        <div className={s.userRole}>
-           {userInfo.role === 'Pets' ? 'Владелец питомца' : 'У меня есть домашнее животное'}
-        </div> 
-      </div>
+        <div className={s.userInfo}>
+          <div className={s.userName}>{userInfo.name}</div> {/* Имя пользователя */}
+          <div className={s.userRole}>
+            {userInfo.role === 'volunteer' ? texts.userPage.userRoleVolunteer : texts.userPage.userRolePetOwner}
+          </div>
+        </div>
       </div>
       <div className={s.question_box}>
-      <h6>Мои вопросы</h6>
-     <Link to="/main/question/choice">
-      <p>все</p>
-      </Link>
+        <h6>{texts.userPage.myQuestions}</h6>
+        <Link to="/main/question/choice">
+          <p>{texts.userPage.allQuestions}</p>
+        </Link>
       </div>
       <CustomMessage 
         questionNumber={55} 
@@ -67,17 +63,17 @@ const P_userPage = () => {
           'https://placehold.co/400', 
           'https://placehold.co/400'
         ]} 
-        animalInfo={'Кошка 1кг200г Самец'} 
-        message={'Уличный кот, за которым я присматриваю, начал кашлять несколько раз в день в последние три недели. Кашель сухой, без выделений. Он активный, аппетит нормальный, но меня беспокоит частота кашля. Корм не меняли. Также прикладываю видео, где видно и слышно, как кот кашляет.'}
+        animalInfo={texts.userPage.animalInfo} 
+        message={texts.userPage.message}
       />
-         <div className={s.question_box2}>
-      <h6>Ветеринарные книжки</h6>
-      <p>все</p>
+      <div className={s.question_box2}>
+        <h6>{texts.userPage.vetBooks}</h6>
+        <p>{texts.userPage.allVetBooks}</p>
       </div>
       <QuestionPetList
         categories={[
           {
-            title: "Мои животные",
+            title: texts.userPage.myAnimalsTitle,
             images: [
               { src: "https://placehold.co/400", type: "digital" },
               { src: "https://placehold.co/400", type: "digital" },
@@ -86,7 +82,7 @@ const P_userPage = () => {
             svgcolor: "green",
           },
           {
-            title: "Бездомные животные",
+            title: texts.userPage.strayAnimalsTitle,
             images: [
               { src: "https://placehold.co/400", type: "non-digital" },
               { src: "https://placehold.co/400", type: "non-digital" },
@@ -98,7 +94,6 @@ const P_userPage = () => {
       />
       <Footer />
     </div>
-    
   );
 };
 

@@ -1,7 +1,8 @@
 @import '../../App.css';
 
 .button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     padding: 16px 78px;
     font-size: 18px;
     font-weight: bold;

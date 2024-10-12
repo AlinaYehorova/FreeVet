@@ -21,7 +21,6 @@ const CustomStickTitle = ({
         lineHeight: 1.1,
         borderRadius: borderRadius || '10px' ,
         ...style
-
       }}
     >
       {text}

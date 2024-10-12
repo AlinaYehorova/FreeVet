@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import texts from "../../utils/ru_text"; // Импортируем текстовый файл
 import s from "./form.module.css";
 import plus from "../../assets/plus.svg";
 import leftArrow from "../../assets/left-arrow.svg";
 import CustomCheckbox from "../customCheckbox/CustomCheckbox";
 import CustomButton from "../customButton/CustomButton";
-
-
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -98,7 +97,7 @@ const Form = () => {
   };
 
   const handlePhoneLogin = () => {
-    alert('Phone login not implemented yet!');
+    alert(texts.form.phoneLoginNotImplemented); // Используйте текст из файла
   };
 
   return (
@@ -107,7 +106,7 @@ const Form = () => {
         <Link to="/" className={s.formHeader_leftArrowBtn}>
           <img src={leftArrow} alt="arrow to left side" />
         </Link>
-        <h2>Создать новый аккаунт</h2>
+        <h2>{texts.form.createAccount}</h2> {/* Замените заголовок */}
       </div>
 
       <div className={s.imageBox}>
@@ -128,31 +127,31 @@ const Form = () => {
           )}
         </label>
         <label htmlFor="fileInput" className={s.uploadLabel_addPhoto}>
-          Добавить фото
+          {texts.form.addPhoto} {/* Замените текст */}
         </label>
       </div>
 
       <form className={s.formBox} onSubmit={handleSubmit(onSubmit)}>
         <label style={{ alignSelf: "start" }}>
-          Имя <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.form.name} <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <input
           className={s.input}
           {...register("name")}
-          placeholder="Ваше имя"
+          placeholder={texts.form.namePlaceholder} // Замените плейсхолдер
           required
         />
         <label style={{ alignSelf: "start" }}>
-          Телефон <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.form.phone} <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <input
           className={s.input}
           {...register("phone")}
-          placeholder="+"
+          placeholder="+" // Здесь можно оставить, если это стандартный формат
           required
         />
 
-        <h3 className={s.formBox_header}>Выберите Вашу роль в сервисе</h3>
+        <h3 className={s.formBox_header}>{texts.form.selectRole}</h3> {/* Заголовок выбора роли */}
 
         {/* Блок для пользователя */}
         <div
@@ -162,7 +161,7 @@ const Form = () => {
         >
           <span>
             <p className={isVetRoleSelected ? s.disabledText : ""}>
-              Кому Вы планируете помогать с FreeVet?
+              {texts.form.helpWithFreeVet} {/* Замените текст */}
             </p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
@@ -173,7 +172,7 @@ const Form = () => {
                   disabled={isVetRoleSelected}
                 />{" "}
                 <span className={isVetRoleSelected ? s.disabledText : ""}>
-                  Бездомным животным
+                  {texts.form.helpHomelessAnimals} {/* Замените текст */}
                 </span>
               </span>
               <span>
@@ -184,14 +183,14 @@ const Form = () => {
                   disabled={isVetRoleSelected}
                 />{" "}
                 <span className={isVetRoleSelected ? s.disabledText : ""}>
-                  Домашним животным
+                  {texts.form.helpPets} {/* Замените текст */}
                 </span>
               </span>
             </div>
           </span>
           <span>
             <p className={isVetRoleSelected ? s.disabledText : ""}>
-              Расскажите о себе
+              {texts.form.tellAboutYourself} {/* Замените текст */}
             </p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
@@ -202,7 +201,7 @@ const Form = () => {
                   disabled={isVetRoleSelected}
                 />{" "}
                 <span className={isVetRoleSelected ? s.disabledText : ""}>
-                  Я - волонтер
+                  {texts.form.volunteer} {/* Замените текст */}
                 </span>
               </span>
               <span style={{ position: "relative", right: "5px" }}>
@@ -213,7 +212,7 @@ const Form = () => {
                   disabled={isVetRoleSelected}
                 />{" "}
                 <span className={isVetRoleSelected ? s.disabledText : ""}>
-                  Я - сотрудник приюта
+                  {texts.form.shelterWorker} {/* Замените текст */}
                 </span>
               </span>
             </div>
@@ -228,7 +227,7 @@ const Form = () => {
                   disabled={isVetRoleSelected}
                 />{" "}
                 <span className={isVetRoleSelected ? s.disabledText : ""}>
-                  У меня есть домашнее животное
+                  {texts.form.havePet} {/* Замените текст */}
                 </span>
               </span>
             </div>
@@ -238,7 +237,7 @@ const Form = () => {
 
         <div className={s.lineBox}>
           <div className={s.line}></div>
-          <p>или</p>
+          <p>{texts.form.or}</p> {/* Замените текст */}
           <div className={s.line}></div>
         </div>
 
@@ -250,7 +249,7 @@ const Form = () => {
         >
           <span>
             <p className={isUserRoleSelected ? s.disabledText : ""}>
-              Вы хотите стать участником команды FreeVet?
+              {texts.form.wantToJoin} {/* Замените текст */}
             </p>
             <div className={s.formBox_checkboxBox_pets}>
               <span>
@@ -261,13 +260,9 @@ const Form = () => {
                   disabled={isUserRoleSelected}
                 />{" "}
                 <span className={isUserRoleSelected ? s.disabledText : ""}>
-                  Я - ветеринарный врач
+                  {texts.form.vetDoctor} {/* Замените текст */}
                 </span>
               </span>
-            </div>
-          </span>
-          <span>
-            <div className={s.formBox_checkboxBox_pets}>
               <span>
                 <CustomCheckbox
                   name="cynologist"
@@ -276,41 +271,37 @@ const Form = () => {
                   disabled={isUserRoleSelected}
                 />{" "}
                 <span className={isUserRoleSelected ? s.disabledText : ""}>
-                  Я - кинолог
+                  {texts.form.cynologist} {/* Замените текст */}
+                </span>
+              </span>
+              <span>
+                <CustomCheckbox
+                  name="zooPsychologist"
+                  onChange={handleVetRoleChange}
+                  checked={vetRoles.zooPsychologist}
+                  disabled={isUserRoleSelected}
+                />{" "}
+                <span className={isUserRoleSelected ? s.disabledText : ""}>
+                  {texts.form.zooPsychologist} {/* Замените текст */}
                 </span>
               </span>
             </div>
-          </span>
-          <div className={s.formBox_checkboxBox_pets}>
-            <span>
-              <CustomCheckbox
-                name="zooPsychologist"
-                onChange={handleVetRoleChange}
-                checked={vetRoles.zooPsychologist}
-                disabled={isUserRoleSelected}
-              />{" "}
-              <span className={isUserRoleSelected ? s.disabledText : ""}>
-                Я - зоопсихолог
-              </span>
-            </span>
             <div className={s.formBox_checkboxBox_petsRole}>Специалист</div>
-          </div>
+          </span>
         </div>
 
-        <CustomButton
-          onClick={handlePhoneLogin}
-          text="Отправить код"
-          padding="16px 78px"
-        />
-        <p className={s.privacyPolicy}>
-          Нажимая на кнопку Отправить код, Вы соглашаетесь
-          <br />
-          с Политикой конфиденциальности
-        </p>
+        <div className={s.buttonBox}>
+          <CustomButton
+            text={texts.form.createAccount} // Замените текст кнопки
+            disabled={!(isUserRoleSelected || isVetRoleSelected)}
+          />
+          <button type="button" onClick={handlePhoneLogin} className={s.phoneLogin}>
+            {texts.form.phoneLogin} {/* Замените текст кнопки входа */}
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
 export default Form;
-
