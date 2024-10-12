@@ -38,7 +38,7 @@ const Q_sendQuestionPage = () => {
       }
 
       // Отправка данных через axios с правильными заголовками для formData
-      await axios.post("/api/submit-question", formData, {
+      await axios.post("http://localhost:5000/api/submit-question", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -48,7 +48,6 @@ const Q_sendQuestionPage = () => {
       navigate("/main/question/confirm");
     } catch (error) {
       console.error("Ошибка при отправке вопроса", error);
-      alert("Ошибка при отправке вопроса");
     }
   };
 
