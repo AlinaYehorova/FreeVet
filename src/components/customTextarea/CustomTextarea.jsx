@@ -1,11 +1,12 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import s from './customTextarea.module.css';
+import texts from '../../utils/ru_text'; // Импорт текстов
 
 const CustomTextarea = forwardRef(({
   rows = 8,
   cols = 50,
-  placeholder = 'Введите текст',
+  placeholder = texts.customInput.defaultErrorMessage, // Использование текста из файла
   width,
   backgroundColor,
   border,
@@ -46,7 +47,6 @@ CustomTextarea.propTypes = {
   backgroundColor: PropTypes.string,
   border: PropTypes.string,
   padding: PropTypes.string,
-  text: PropTypes.string,
   color: PropTypes.string,
   borderRadius: PropTypes.string,
   style: PropTypes.object,
@@ -55,7 +55,7 @@ CustomTextarea.propTypes = {
 CustomTextarea.defaultProps = {
   rows: 8,
   cols: 50,
-  placeholder: 'Введите текст',
+  placeholder: texts.customInput.defaultErrorMessage, // Значение по умолчанию из текстов
 };
 
 export default CustomTextarea;

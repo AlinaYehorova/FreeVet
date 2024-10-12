@@ -4,6 +4,7 @@ import LineHeader from "../../../components/lineHeader/LineHeader";
 import useVerificationCode from "../../../customHooks/useVerificationCode";
 import CodeInputBox from "../../../components/codeInputBox/CodeInputBox";
 import CustomButton from "../../../components/customButton/CustomButton";
+import texts from '../../../utils/ru_text';  // Импорт текстов
 
 const L_vetCodePage = () => {
   const navigate = useNavigate();
@@ -29,15 +30,16 @@ const L_vetCodePage = () => {
       navigate("/verification/role");
     }
   };
+
   return (
     <div className={s.l_verificationPage}>
-      <h2>Верификация</h2>
-      <LineHeader showMiddleLine={false}  right={"var(--color-main)"}  />
+      <h2>{texts.vetCodePage.header}</h2>
+      <LineHeader showMiddleLine={false} right={"var(--color-main)"} />
       <h5>
-        Похоже, что Вы еще не авторизованы <br />в сервисе в качестве специалиста :(
+        {texts.vetCodePage.notAuthorized}
       </h5>
       <p className={s.l_verificationCode}>
-        Пожалуйста, введите полученный Вами <br /> код авторизации
+        {texts.vetCodePage.enterCode}
       </p>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <CodeInputBox
@@ -57,15 +59,16 @@ const L_vetCodePage = () => {
             link="/main"
             customStyle={{ display: "flex", alignItems: "center", justifyContent: "center" }}
             padding={"16px 54px"}
-            text="Отмена"
+            text={texts.vetCodePage.cancel}
             disabled={isFormValid}
           />
           <button className={s.button} type="submit" disabled={!isFormValid}>
-            Отправить
+            {texts.vetCodePage.submit}
           </button>
         </div>
       </form>
     </div>
   );
 };
+
 export default L_vetCodePage;

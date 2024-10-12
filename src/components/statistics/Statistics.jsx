@@ -1,24 +1,25 @@
 import s from './statistics.module.css';
+import texts from '../../utils/ru_text'; // Импортируйте файл с текстами
 
 const Statistics = () => {
   return (
     <section className={s.statistics}>
-      <h2>Статистика помощи</h2>
+      <h2>{texts.statistics.title}</h2>
       <div className={s.stats}>
         <div className={s.statItem}>
           <span>203</span>
-          <p>животным оказана помощь</p>
+          <p>{texts.statistics.helpedAnimals}</p>
         </div>
         <div className={s.statItem}>
           <span>75</span>
-          <p>животным помогли в этом месяце</p>
+          <p>{texts.statistics.helpedThisMonth}</p>
         </div>
         <div className={s.statItem}>
           <span>550</span>
-          <p>евро пожертвовано на развитие проекта</p>
+          <p>{texts.statistics.donatedAmount}</p>
         </div>
       </div>
-      <h3> Спасибо за Вашу поддержку!</h3>
+      <h3>{texts.statistics.thankYou}</h3>
     </section>
   );
 }

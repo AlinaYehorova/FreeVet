@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import s from './fileUploader.module.css';
 import close from '../../assets/close.svg';
 import plus from '../../assets/plus.svg';
+import texts from '../../utils/ru_text'; // Импортируем текстовый файл
 
 const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = () => {} }) => {
   const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null); // создаем реф для input
 
   useEffect(() => {
-    // Проверяем, является ли onUpload функцией, перед тем как вызывать её
     if (typeof onUpload === 'function') {
       onUpload(files);
     } else {
@@ -19,16 +19,15 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
   const handleFileUpload = (event) => {
     const selectedFiles = Array.from(event.target.files);
     if (files.length + selectedFiles.length > maxFiles) {
-      alert(`Вы можете загрузить до ${maxFiles} файлов.`);
+      alert(texts.fileUploader.uploadLimitError.replace('{{maxFiles}}', maxFiles)); // Используем текст из файла
       return;
     }
 
-    // Проверка типа файлов перед добавлением
     const validFiles = selectedFiles.filter(file => {
       if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
         return true;
       }
-      alert(`Файл ${file.name} имеет неподдерживаемый тип.`);
+      alert(texts.fileUploader.unsupportedFileType.replace('{{fileName}}', file.name)); // Используем текст из файла
       return false;
     });
 
@@ -36,7 +35,6 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
   };
 
   const removeFile = (index) => {
-    // Отменяем URL, чтобы предотвратить утечку памяти
     URL.revokeObjectURL(URL.createObjectURL(files[index]));
     setFiles(files.filter((_, i) => i !== index));
   };
@@ -65,7 +63,6 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
           </div>
         ))}
 
-        {/* Отображаем кнопку загрузки, если файлов меньше maxFiles */}
         {files.length < maxFiles && (
           <div 
             className={s.uploadBox} 
@@ -86,7 +83,6 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
           </div>
         )}
 
-        {/* Отображаем пустые места, если файлов меньше maxFiles */}
         {Array.from({ length: Math.max(0, maxFiles - files.length - 1) }).map((_, idx) => (
           <div key={idx} className={s.emptyBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}></div>
         ))}

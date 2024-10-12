@@ -5,6 +5,7 @@ import CustomCheckbox from "../../../components/customCheckbox/CustomCheckbox";
 import CustomTextarea from "../../../components/customTextarea/CustomTextarea";
 import CustomButton from "../../../components/customButtonSubmit/CustomButtonSubmit";
 import s from "./q_closeQuestionPage.module.css";
+import texts from "../../../utils/ru_text"; // Импортируйте текстовый файл
 
 const Q_closeQuestionPage = () => {
   const [selectedRating, setSelectedRating] = useState(null);
@@ -26,7 +27,6 @@ const Q_closeQuestionPage = () => {
     alert("Нужно добавить URL-адрес");
     if (!selectedRating) return;
 
-    // Обработка отправки данных на сервер
     const formData = {
       rating: selectedRating,
       feedback: textareaValue || "",
@@ -49,12 +49,9 @@ const Q_closeQuestionPage = () => {
 
   return (
     <div className={s.closeQuestionPage}>
-      <h2>Закрыть вопрос</h2>
-      <h5>Вы уверены, что хотите закрыть вопрос?</h5>
-      <p className={s.closeQuestionText}>
-        Пожалуйста, оцените ответы ветеринарного врача <br /> по шкале от 1 до 10, <br /> где 1 - совсем не понравилось, <br /> 10 -
-        все супер! &#42;
-      </p>
+      <h2>{texts.closeQuestionPage.header}</h2> {/* Заголовок страницы */}
+      <h5>{texts.closeQuestionPage.confirmation}</h5> {/* Текст подтверждения */}
+      <p className={s.closeQuestionText} dangerouslySetInnerHTML={{ __html: texts.closeQuestionPage.ratingPrompt }} /> {/* Описание рейтинга */}
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.checkboxContainer}>
           {Array.from({ length: 10 }, (_, index) => (
@@ -65,11 +62,11 @@ const Q_closeQuestionPage = () => {
           ))}
         </div>
         <div className={s.areaContainer}>
-          <p>Вы можете оставить свой отзыв</p>
+          <p>{texts.closeQuestionPage.feedbackPrompt}</p> {/* Текст для отзыва */}
           <CustomTextarea backgroundColor="#2A9D8F16" value={textareaValue} onChange={handleTextareaChange} />
         </div>
         <CustomButton
-          text="Закрыть вопрос"
+          text={texts.closeQuestionPage.submitButton} // Текст кнопки
           type="submit"
           disabled={!selectedRating || isSubmitting}
           customStyle={{ marginTop: "80px" }}

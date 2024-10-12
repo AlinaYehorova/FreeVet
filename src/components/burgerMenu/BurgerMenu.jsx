@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import s from './burgerMenu.module.css'; 
-
+import texts from '../../utils/ru_text'; // Импортируем текст
 
 const BurgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false); // Состояние для управления открытием меню
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Переключаем состояние меню
+    setIsOpen(!isOpen);
   };
 
   return (
     <div className={s.burgerMenu}>
       <div onClick={toggleMenu} className={s.burgerIcon}>
-        {/* 3 точки */}
         <div className={s.dot}></div>
         <div className={s.dot}></div>
         <div className={s.dot}></div>
@@ -22,9 +21,8 @@ const BurgerMenu = () => {
           <div className={s.modalContent}>
             <span className={s.close} onClick={toggleMenu}>&times;</span>
             <ul>
-              <li>Редактировать профиль</li>
-              <li>Настройки
-              </li>
+              <li>{texts.burgerMenu.editProfile}</li>
+              <li>{texts.burgerMenu.settings}</li>
             </ul>
           </div>
         </div>

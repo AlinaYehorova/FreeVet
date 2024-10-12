@@ -1,11 +1,12 @@
-
+import React from 'react';
 import s from './customButtonSubmit.module.css';
+import texts from '../../utils/ru_text'; 
 
 const CustomButtonSubmit = ({
   backgroundColor,
   border,
   padding,
-  text = "Submit",
+  text = texts.customButtonSubmit.submitText, 
   type = "submit", 
   color,
   disabled, 
@@ -31,7 +32,7 @@ const CustomButtonSubmit = ({
         ...customStyle, 
       }}
     >
-      {text}
+      {text} 
     </button>
   );
 };

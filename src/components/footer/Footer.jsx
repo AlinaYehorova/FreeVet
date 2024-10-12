@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import texts from '../../utils/ru_text'; // Импортируем текстовый файл
 
 import s from './footer.module.css';
 import PlusWhite from '../../assets/PlusWhite.png';
@@ -10,14 +11,13 @@ const Footer = () => {
   const { pathname } = useLocation();
 
   const links = [
-    { icon: PlusWhite, label: 'Главная', path: '/main' },
-    { icon: Profile, label: 'Профиль', path: '/profile' },
-    { icon: Vectore, label: 'Поддержать', path: '/donate' },
-    { icon: Paw, label: 'О сервисе', path: '/service' },
+    { icon: PlusWhite, label: texts.footer.main, path: '/main' },
+    { icon: Profile, label: texts.footer.profile, path: '/profile' },
+    { icon: Vectore, label: texts.footer.donate, path: '/donate' },
+    { icon: Paw, label: texts.footer.service, path: '/service' },
   ];
 
   const handleLinkClick = (path) => {
-
     if (pathname === '/main' && path === '/main') {
       window.location.reload(); 
     }

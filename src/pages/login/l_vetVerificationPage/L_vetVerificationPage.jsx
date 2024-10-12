@@ -7,6 +7,7 @@ import CustomCheckbox from "../../../components/customCheckbox/CustomCheckbox";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import CustomTextarea from '../../../components/customTextarea/CustomTextarea';
+import texts from '../../../utils/ru_text';  // Импорт текстов
 
 const L_vetVerificationPage = () => {
   const { 
@@ -15,87 +16,73 @@ const L_vetVerificationPage = () => {
     formState: { errors }, 
     watch 
   } = useForm({
-    mode: "onChange",  // Включаем валидацию при изменении
+    mode: "onChange",
   });
 
   const [text, setText] = useState('');
   const [files, setFiles] = useState([]);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const [isCreateButtonDisabled, setIsCreateButtonDisabled] = useState(true);
-  const [isCancelButtonDisabled, setIsCancelButtonDisabled] = useState(false); // Изменено на false
+  const [isCancelButtonDisabled, setIsCancelButtonDisabled] = useState(false);
   
-  // Следим за всеми полями формы через watch
   const watchedName = watch('name');
   const watchedEmail = watch('email');
   const watchedTelegram = watch('telegram');
   const watchedSpecialization = watch('specialization');
   const watchedPetArt = watch('petArt');
 
-  // Обработчик изменения текста
   const handleChange = (e) => setText(e.target.value);
 
-  // Обработчик загрузки файлов
   const onUpload = (uploadedFiles) => {
     setFiles(uploadedFiles);
   };
 
-  // Обработчик изменений чекбокса
   const handleConfirmationChange = (e) => {
     setIsCheckboxChecked(e.target.checked);
   };
 
-  // Следим за изменением всех полей и состояния для активации кнопок
   useEffect(() => {
-    // Проверяем, что все обязательные поля формы заполнены и валидны
     const isFormValid = 
       watchedName?.length > 1 && 
       watchedEmail?.length > 0 && 
       watchedTelegram?.length > 1 && 
       watchedSpecialization?.length > 1 && 
       watchedPetArt?.length > 1 &&
-      files.length > 0 &&  // Проверяем наличие загруженных файлов
-      isCheckboxChecked;   // Чекбокс должен быть отмечен
+      files.length > 0 &&
+      isCheckboxChecked;
 
     setIsCreateButtonDisabled(!isFormValid);
-    setIsCancelButtonDisabled(isFormValid); // Блокируем кнопку "Отмена", если форма заполнена
+    setIsCancelButtonDisabled(isFormValid);
   }, [watchedName, watchedEmail, watchedTelegram, watchedSpecialization, watchedPetArt, files, isCheckboxChecked]);
 
-  // Обработчик отправки формы
   const onSubmit = (data) => {
     if (!isCheckboxChecked) {
       alert("Необходимо подтвердить достоверность сведений");
       return;
     }
-    // Логика отправки данных на сервер или дальнейшей обработки
     console.log("Form submitted:", { ...data, text, files });
   };
 
   return (
     <div className={s.l_vetVerificationPage}>
-      <h2>Верификация</h2>
+      <h2>{texts.vetVerificationPage.header}</h2>
       <LineHeader showMiddleLine={false} />
 
-      <h5>
-        Похоже, что Вы еще не авторизованы
-        <br />
-        в сервисе в качестве специалиста :(
-      </h5>
+      <h5>{texts.vetVerificationPage.notAuthorized}</h5>
       
       <p className={s.l_vetVerificationPage_pGreen}>
-        Пожалуйста, укажите дополнительные данные,
-        <br />
-        для авторизации Вас в качестве специалиста
+        {texts.vetVerificationPage.additionalData}
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Имя и Фамилия */}
         <label style={{ alignSelf: "start" }}>
-          Имя и Фамилия полностью <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.vetVerificationPage.nameLabel}
         </label>
         <CustomInput
           {...register("name", {
-            required: "Имя и Фамилия обязательно",
-            minLength: { value: 2, message: "Минимум 2 символа" },
+            required: texts.vetVerificationPage.nameRequired,
+            minLength: { value: 2, message: texts.vetVerificationPage.nameMinLength },
           })}
           color={'var(--color-text-dark)'}
           placeholder="Имя и Фамилия"
@@ -106,15 +93,13 @@ const L_vetVerificationPage = () => {
 
         {/* Документы */}
         <label style={{ alignSelf: "start" }}>
-          Пожалуйста, добавьте документы,
-          <br />
-          подтверждающие Вашу квалификацию <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.vetVerificationPage.documentsLabel}
         </label>
         <FileUploader maxFiles={6} boxSize={50} borderRadius={5} onUpload={onUpload} />
 
         {/* Дополнительная информация */}
         <label style={{ alignSelf: "start" }}>
-          Также Вы можете указать дополнительную информацию
+          {texts.vetVerificationPage.additionalInfoLabel}
         </label>
         <CustomTextarea
           value={text}
@@ -127,14 +112,14 @@ const L_vetVerificationPage = () => {
 
         {/* Email */}
         <label style={{ alignSelf: "start" }}>
-          Email <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.vetVerificationPage.emailLabel}
         </label>
         <CustomInput
           {...register("email", {
-            required: "Email обязательно",
+            required: texts.vetVerificationPage.emailRequired,
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: "Введите корректный Email"
+              message: texts.vetVerificationPage.emailPattern
             }
           })}
           color={'var(--color-text-dark)'}
@@ -146,12 +131,12 @@ const L_vetVerificationPage = () => {
 
         {/* Telegram */}
         <label style={{ alignSelf: "start" }}>
-          Telegram <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.vetVerificationPage.telegramLabel}
         </label>
         <CustomInput
           {...register("telegram", {
-            required: "Telegram обязательно",
-            minLength: { value: 2, message: "Минимум 2 символа" },
+            required: texts.vetVerificationPage.telegramRequired,
+            minLength: { value: 2, message: texts.vetVerificationPage.telegramMinLength },
           })}
           color={'var(--color-text-dark)'}
           placeholder="@"
@@ -162,12 +147,12 @@ const L_vetVerificationPage = () => {
 
         {/* Специализация */}
         <label style={{ alignSelf: "start" }}>
-          Укажите Вашу специализацию <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.vetVerificationPage.specializationLabel}
         </label>
         <CustomInput
           {...register("specialization", {
-            required: "Специализация обязательно",
-            minLength: { value: 2, message: "Минимум 2 символа" },
+            required: texts.vetVerificationPage.specializationRequired,
+            minLength: { value: 2, message: texts.vetVerificationPage.specializationMinLength },
           })}
           color={'var(--color-text-dark)'}
           placeholder="ветеринарный врач / кинолог / зоопсихолог  / ..."
@@ -178,50 +163,31 @@ const L_vetVerificationPage = () => {
 
         {/* Вид животных */}
         <label style={{ alignSelf: "start" }}>
-          Укажите животных (кошки, собаки и т.д.),
-          <br />
-          на помощи которым Вы специализируетесь <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.vetVerificationPage.petArtLabel}
         </label>
         <CustomInput
           {...register("petArt", {
-            required: "Вид животного обязательно",
-            minLength: { value: 2, message: "Минимум 2 символа" },
+            required: texts.vetVerificationPage.petArtRequired,
+            minLength: { value: 2, message: texts.vetVerificationPage.petArtMinLength },
           })}
           color={'var(--color-text-dark)'}
-          placeholder="Например: кошки, собаки"
+          placeholder="Кошки, собаки и т.д."
           borderColor="var(--color-input-bg-grey)"
           width={335}
         />
         {errors.petArt && <p style={{ color: "red" }}>{errors.petArt.message}</p>}
 
         {/* Чекбокс */}
-        <span className={s.checkboxBox}>
-          <CustomCheckbox
-            {...register("confirmation")}
-            name="confirmation"
-            onChange={handleConfirmationChange}
-            checked={isCheckboxChecked}
-          />{" "}
-          <span>Достоверность представленных сведений подтверждаю</span>
-        </span>
-
+        <CustomCheckbox 
+          onChange={handleConfirmationChange} 
+          checked={isCheckboxChecked}
+          label={texts.vetVerificationPage.checkboxLabel}
+        />
+        
         {/* Кнопки */}
-        <div className={s.btnBox}>
-          <CustomButton 
-            link="/main" 
-            customStyle={{ whiteSpace: 'nowrap' }} 
-            padding={'16px 54px'} 
-            text="Отмена" 
-            disabled={isCancelButtonDisabled} // Активируем кнопку "Отмена", если форма заполнена
-          />
-          <CustomButton 
-            link="/verification/role/vet/vet-verification/code"
-            type="submit" 
-            disabled={isCreateButtonDisabled} 
-            customStyle={{ whiteSpace: 'nowrap' }} 
-            padding={'16px 42.5px'} 
-            text="Отправить" 
-          />
+        <div className={s.buttonGroup}>
+          <CustomButton disabled={isCreateButtonDisabled} text={texts.vetVerificationPage.submit} type="submit" />
+          <CustomButton disabled={isCancelButtonDisabled} text={texts.vetVerificationPage.cancel} type="button" />
         </div>
       </form>
     </div>

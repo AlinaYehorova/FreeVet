@@ -8,6 +8,7 @@ import LineHeader from "../../../components/lineHeader/LineHeader";
 import close from "../../../assets/close.svg";
 import CustomTextarea from '../../../components/customTextarea/CustomTextarea';
 import CustomButtonSubmit from "../../../components/customButtonSubmit/CustomButtonSubmit";
+import texts from "../../../utils/ru_text"; // Импортируйте текстовый файл
 
 const Q_sendQuestionPage = () => {
   const location = useLocation();
@@ -55,14 +56,14 @@ const Q_sendQuestionPage = () => {
     <div className={s.q_sendQuestionPage}>
       <div className={s.q_sendQuestionPage_header}>
         <FormHeader path="/main/question/choice" fontSize={36}>
-          Задать вопрос
+          {texts.sendQuestionPage.header} {/* Заголовок страницы */}
         </FormHeader>
         <Link to={"/main"}>
           <img className={s.closeBtn} src={close} alt="close" />
         </Link>
       </div>
       <LineHeader middle={"var(--color-main)"} right={"var(--color-main)"} />
-      <p className={s.q_sendQuestionPage_file_p}>Добавленные фото и (или) видео</p>
+      <p className={s.q_sendQuestionPage_file_p}>{texts.sendQuestionPage.addedMedia}</p> {/* Текст добавленных медиа */}
       <div className={s.q_sendQuestionPage_fileBox}>
         {files && files.length > 0 ? (
           <div className={s.filesContainer}>
@@ -79,32 +80,32 @@ const Q_sendQuestionPage = () => {
             ))}
           </div>
         ) : (
-          <p>Фото отсутствует</p>
+          <p>{texts.sendQuestionPage.noPhotos}</p>
         )}
       </div>
       <div className={s.q_sendQuestionPage_description}>
-        <p>{petArt}</p>
-        <p>{petWeight}</p>
-        <p>{petGender}</p>
+        <p>{texts.sendQuestionPage.petArt}: {petArt}</p> {/* Вид животного */}
+        <p>{texts.sendQuestionPage.petWeight}: {petWeight}</p> {/* Вес животного */}
+        <p>{texts.sendQuestionPage.petGender}: {petGender}</p> {/* Пол животного */}
         <p style={{ display: "none" }}>
-          Животное бездомное: {isHomeless ? "Да" : "Нет"}
+          {texts.sendQuestionPage.homeless} {isHomeless ? "Да" : "Нет"} {/* Безопасность животного */}
         </p>
       </div>
       <p className={s.q_sendQuestionPage_p}>Напишите Ваш вопрос</p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <CustomTextarea
-          {...register("question", { required: "Поле обязательно для заполнения" })} 
+          {...register("question", { required: texts.sendQuestionPage.requiredField })} 
           rows={8}
           cols={50}
-          placeholder="Введите текст"
+          placeholder={texts.sendQuestionPage.questionPlaceholder} // Текстовое поле
           style={{borderColor: 'var(--color-input-bg-grey)', backgroundColor: 'var(--color-text-white)', height: '310px'}}
         />
         {errors.question && <p className={s.errorText}>{errors.question.message}</p>}
 
         <div className={s.btnBox}>
           <CustomButtonSubmit
-            text="Отправить вопрос"
+            text={texts.sendQuestionPage.submitButton} // Текст кнопки
             padding={"16px 99.5px"}
             disabled={!isValid}
           />

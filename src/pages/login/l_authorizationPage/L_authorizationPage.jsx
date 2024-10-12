@@ -1,9 +1,10 @@
 import s from "./l_authorizationPage.module.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import AuthOptions from '../../../components/authOptions/AuthOptions.jsx';
-import LanguageSwitcher from "../../../components/languageSwitcher/LanguageSwitcher.jsx";
-import logo from "../../../assets/TailBook_ecosystem.png"
-import banner from "../../../assets/banner.png"
+import LanguageSwitcher from  "../../../components/languageSwitcher/LanguageSwitcher.jsx";
+import logo from "../../../assets/TailBook_ecosystem.png";
+import banner from "../../../assets/banner.png";
+import texts from "../../../utils/ru_text.js";
 
 const L_authorizationPage = () => {
   return (
@@ -15,7 +16,7 @@ const L_authorizationPage = () => {
       </div>
       <div className={s.banner}>
         <img src={banner} alt="" />
-        <p>Помогать животным проще вместе с FreeVet!</p>
+        <p>{texts.authorizationPage.bannerText}</p> 
       </div>
       <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
         <AuthOptions />
