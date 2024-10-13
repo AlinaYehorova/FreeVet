@@ -6,6 +6,7 @@ import CustomButton from "../../../components/customButton/CustomButton";
 import CustomCheckbox from "../../../components/customCheckbox/CustomCheckbox";
 import CustomStickTitle from '../../../components/customStickTitle/CustomStickTitle';
 import FormHeader from "../../../components/formHeader/FormHeader";
+import texts from "../../../utils/ru_text.js"; // Импортируем текстовый файл
 
 const L_userRolePage = () => {
   const [userRoles, setUserRoles] = useState({
@@ -89,11 +90,11 @@ const L_userRolePage = () => {
   return (
     <div className={s.l_userRolePage}>
       <div className={s.formHeader}>
-      <FormHeader path="/" fontSize={36}>Статус участника</FormHeader>
+      <FormHeader path="/" fontSize={36} titleKey={texts.userRolePage.header}/>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={s.formBox}>
-          <h5 className={s.formBox_header}>Выберите Вашу роль в сервисе</h5>
+          <h5 className={s.formBox_header}>{texts.userRolePage.role}</h5>
 
           {/* Блок для пользователя */}
           <div
@@ -103,7 +104,7 @@ const L_userRolePage = () => {
           >
             <span>
               <p className={isVetRoleSelected ? s.disabledText : ""}>
-                Кому Вы планируете помогать с FreeVet?
+              {texts.userRolePage.helpWithFreeVet}
               </p>
               <div className={s.formBox_checkboxBox_pets}>
                 <span>
@@ -115,7 +116,7 @@ const L_userRolePage = () => {
                     disabled={isVetRoleSelected}
                   />{" "}
                   <span className={isVetRoleSelected ? s.disabledText : ""}>
-                    Бездомным животным
+                  {texts.userRolePage.helpHomelessAnimals}
                   </span>
                 </span>
                 <span>
@@ -127,14 +128,14 @@ const L_userRolePage = () => {
                     disabled={isVetRoleSelected}
                   />{" "}
                   <span className={isVetRoleSelected ? s.disabledText : ""}>
-                    Домашним животным
+                  {texts.userRolePage.helpPets}
                   </span>
                 </span>
               </div>
             </span>
             <span>
               <p className={isVetRoleSelected ? s.disabledText : ""}>
-                Расскажите о себе
+              {texts.userRolePage.tellAboutYourself}
               </p>
               <div className={s.formBox_checkboxBox_pets}>
                 <span>
@@ -146,7 +147,7 @@ const L_userRolePage = () => {
                     disabled={isVetRoleSelected}
                   />{" "}
                   <span className={isVetRoleSelected ? s.disabledText : ""}>
-                    Я - волонтер
+                  {texts.userRolePage.volunteer}
                   </span>
                 </span>
                 <span style={{ position: "relative", right: "5px" }}>
@@ -158,7 +159,7 @@ const L_userRolePage = () => {
                     disabled={isVetRoleSelected}
                   />{" "}
                   <span className={isVetRoleSelected ? s.disabledText : ""}>
-                    Я - сотрудник приюта
+                  {texts.userRolePage.shelterWorker}
                   </span>
                 </span>
               </div>
@@ -174,18 +175,17 @@ const L_userRolePage = () => {
                     disabled={isVetRoleSelected}
                   />{" "}
                   <span className={isVetRoleSelected ? s.disabledText : ""}>
-                    У меня есть домашнее животное
+                  {texts.userRolePage.havePet}
                   </span>
                 </span>
               </div>
-              <span className={isVetRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle backgroundColor={'white'}/></span>
-              <span className={isVetRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle backgroundColor={'white'}/></span>
+              <span className={isVetRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle backgroundColor={'white'} text={texts.userRolePage.userStick}/></span>
             </span>
           </div>
 
           <div className={s.lineBox}>
             <div className={s.line}></div>
-            <p>или</p>
+            <p>{texts.userRolePage.or}</p>
             <div className={s.line}></div>
           </div>
 
@@ -197,7 +197,7 @@ const L_userRolePage = () => {
           >
             <span>
               <p className={isUserRoleSelected ? s.disabledText : ""}>
-                Вы хотите стать участником команды FreeVet?
+              {texts.userRolePage.wantToJoin}
               </p>
               <div className={s.formBox_checkboxBox_pets}>
                 <span>
@@ -209,7 +209,7 @@ const L_userRolePage = () => {
                     disabled={isUserRoleSelected}
                   />{" "}
                   <span className={isUserRoleSelected ? s.disabledText : ""}>
-                    Я - ветеринарный врач
+                  {texts.userRolePage.vetDoctor}
                   </span>
                 </span>
               </div>
@@ -225,7 +225,7 @@ const L_userRolePage = () => {
                     disabled={isUserRoleSelected}
                   />{" "}
                   <span className={isUserRoleSelected ? s.disabledText : ""}>
-                    Я - кинолог
+                  {texts.userRolePage.cynologist}
                   </span>
                 </span>
               </div>
@@ -240,17 +240,17 @@ const L_userRolePage = () => {
                   disabled={isUserRoleSelected}
                 />{" "}
                 <span className={isUserRoleSelected ? s.disabledText : ""}>
-                  Я - зоопсихолог
+                {texts.userRolePage.zooPsychologist}
                 </span>
               </span>
-              <span className={isUserRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle text="Специалист" backgroundColor={'white'} /></span>
+              <span className={isUserRoleSelected ? s.disabledText : ""} style={{position: 'absolute', bottom: '-1px', right: '-1px'}}><CustomStickTitle text={texts.userRolePage.vetStick} backgroundColor={'white'} /></span>
             </div>
           </div>
         </div>
         <div className={s.buttonBox}>
           <CustomButton
             onClick={handleSubmit}
-            text="Сохранить"
+            text={texts.userRolePage.saveBtn}
             padding="16px 78px"
             link={roleBasedLink} // Используем динамическую ссылку
             disabled={!isAnyRoleSelected}  

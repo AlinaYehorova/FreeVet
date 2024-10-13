@@ -10,14 +10,13 @@ const FormHeader = ({ path, titleKey, headerPadding = "0", fontSize }) => {
       <Link to={path} className={s.formHeader_leftArrowBtn}>
         <img src={leftArrow} alt={texts.formHeader.backButtonAlt} /> {/* Используйте текст из файла */}
       </Link>
-      <h2 style={{ padding: headerPadding, fontSize: fontSize || '22px' }} >
-        {texts.formHeader.title} 
-        </h2>
+      <h2 style={{ padding: headerPadding, fontSize: fontSize || '22px' }}>
+        {titleKey} {/* Используем переданный пропс */}
+      </h2>
     </div>
   );
 };
 
-export default FormHeader;
-
+export default FormHeader
 
 //<FormHeader path="/previous" titleKey="title" />

@@ -7,7 +7,7 @@ import close from "../../../assets/close.svg";
 import QuestionPetList from "../../../components/questionPetList/QuestionPetList";
 import CustomButton from "../../../components/customButton/CustomButton";
 import plus from "../../../assets/plus.svg";
-import texts from '../../../utils/ru_text'; // Импортируем файл с текстами
+import texts from "../../../utils/ru_text"; // Импортируем файл с текстами
 
 const Q_choiceAnimalPage = () => {
   const [selectedAnimalType, setSelectedAnimalType] = useState(null); // состояние для хранения типа животного
@@ -30,28 +30,34 @@ const Q_choiceAnimalPage = () => {
   };
 
   // Определяем ссылку для перехода на основе выбранного типа животного
-  const animalBasedLink = selectedAnimalType === "digital"
-    ? "/link-to-digital" // если выбрано животное с цифровой книжкой
-    : isNewAnimalSelected
+  const animalBasedLink =
+    selectedAnimalType === "digital"
+      ? "/link-to-digital" // если выбрано животное с цифровой книжкой
+      : isNewAnimalSelected
       ? "/main/question/description-animal" // если выбрано животное без книжки
       : "#"; // если ничего не выбрано
 
   return (
     <div className={s.q_choiceAnimalPage}>
       <div className={s.q_choiceAnimalPage_header}>
-        <FormHeader path="/main" fontSize={36}>
-          {texts.questionPage.header} {/* Используем текст из файла */}
-        </FormHeader>
+        <FormHeader
+          path="/main"
+          fontSize={36}
+          titleKey={texts.questionPage.title}
+        />
         <Link to={"/main"}>
           <img className={s.closeBtn} src={close} alt="close" />
         </Link>
       </div>
       <LineHeader middle={"var(--color-line)"} />
-      <h5 dangerouslySetInnerHTML={{ __html: texts.questionPage.animalSelection }} /> {/* Используем текст из файла */}
+      <h5
+        dangerouslySetInnerHTML={{ __html: texts.questionPage.animalSelection }}
+      />{" "}
+      {/* Используем текст из файла */}
       <QuestionPetList
         categories={[
           {
-            title: "Мои животные",
+            title: texts.userPage.myAnimalsTitle,
             images: [
               { src: "https://placehold.co/400", type: "digital" },
               { src: "https://placehold.co/400", type: "digital" },
@@ -60,7 +66,7 @@ const Q_choiceAnimalPage = () => {
             svgcolor: "green",
           },
           {
-            title: "Бездомные животные",
+            title: texts.userPage.strayAnimalsTitle,
             images: [
               { src: "https://placehold.co/400", type: "non-digital" },
               { src: "https://placehold.co/400", type: "non-digital" },
@@ -73,25 +79,29 @@ const Q_choiceAnimalPage = () => {
         resetSelection={resetSelection}
       />
       <div className={s.q_choiceAnimalPage_newAnimal_box}>
-        <h5 dangerouslySetInnerHTML={{ __html: texts.questionPage.newAnimal }} /> {/* Используем текст из файла */}
+        <h5
+          dangerouslySetInnerHTML={{ __html: texts.questionPage.newAnimal }}
+        />{" "}
+        {/* Используем текст из файла */}
         <div className={s.q_choiceAnimalPage_newAnimal_boxBtnTitle}>
           <div
             className={s.q_choiceAnimalPage_newAnimal_btnPlus}
             onClick={handleNewAnimalClick}
           >
             <img src={plus} alt="plus" />
-            <div className={`${s.circle} ${isNewAnimalSelected ? s.selected : ""}`} />
+            <div
+              className={`${s.circle} ${isNewAnimalSelected ? s.selected : ""}`}
+            />
           </div>
-          <h5>Новое животное</h5>
+          <h5>{texts.questionPage.addAnimal}</h5>
         </div>
       </div>
       <CustomButton
-  text={texts.questionPage.continueButton} // Используем текст из файла
-  padding={"16px 120.5px"}
-  link={animalBasedLink} // Передаем динамическую ссылку
-  disabled={!selectedAnimalType && !isNewAnimalSelected} // кнопка активна только при выборе животного
-/>
-
+        text={texts.questionPage.continueButton} // Используем текст из файла
+        padding={"16px 120.5px"}
+        link={animalBasedLink} // Передаем динамическую ссылку
+        disabled={!selectedAnimalType && !isNewAnimalSelected} // кнопка активна только при выборе животного
+      />
     </div>
   );
 };

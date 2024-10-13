@@ -36,10 +36,20 @@
   justify-content: flex-start;
   gap: 13px;
 }
+
+.closeQuestionPage textarea {
+  font-style: italic;
+  outline-color: var(--color-main);
+}
+.closeQuestionPage textarea::placeholder{
+  font-style: italic;
+}
+
 .areaContainer p {
   padding-top: 26px;
   padding-bottom: 8px;
 }
+
 .form {
   display: flex;
   flex-direction: column;

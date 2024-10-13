@@ -47,9 +47,10 @@ const L_registrationPage = () => {
   return (
     <form className={s.l_registrationPage} onSubmit={handleSubmit(onSubmit)}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <FormHeader path="/" headerPadding={"0 0 15px 0"}>
-          {texts.registrationPage.header}
-        </FormHeader>
+        <FormHeader 
+        path="/" 
+        titleKey={texts.registrationPage.header}
+        />
 
         <FileUploader maxFiles={1} boxSize={72} borderRadius={15} />
         <p style={{ marginTop: "8px", textAlign: "center" }}>{texts.registrationPage.addPhoto}</p>
@@ -62,7 +63,7 @@ const L_registrationPage = () => {
             required: texts.registrationPage.nameErrorRequired,
             minLength: { value: 2, message: texts.registrationPage.nameErrorMinLength },
           })}
-          placeholder="Ваше имя"
+          placeholder={texts.registrationPage.placeholderName}
           width={335}
         />
         {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
@@ -89,9 +90,9 @@ const L_registrationPage = () => {
           padding="16px 78px"
           disabled={!isValid}
         />
-        <p className={s.privacyPolicy}>
-          {texts.registrationPage.privacyPolicyText}
-        </p>
+        <p className={s.privacyPolicy}
+         dangerouslySetInnerHTML={{__html: texts.registrationPage.privacyPolicyText}}
+        />
       </div>
     </form>
   );

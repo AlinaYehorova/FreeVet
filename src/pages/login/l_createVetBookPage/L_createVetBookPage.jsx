@@ -52,17 +52,16 @@ const L_createVetBookPage = () => {
   return (
     <div className={s.l_createVetBookPage}>
       <div className={s.formHeader}>
-        <h2>{texts.verificationPage.header}</h2> {/* Заголовок */}
+        <h2>{texts.l_createVetBookPage.header}</h2> {/* Заголовок */}
         <Link to="/main" className={s.formHeader_closeBtn}>
           <img src={close} alt="arrow to left side" />
         </Link>
       </div>
-      <h5>
-        {texts.sendQuestionPage.noPhotos} {/* Текст о том, что у любимца еще нет книжки */}
-      </h5>
+      <h5
+        dangerouslySetInnerHTML={{ __html:texts.l_createVetBookPage.noBook}} />{/* Текст о том, что у любимца еще нет книжки */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label style={{ alignSelf: "start" }}>
-          {texts.sendQuestionPage.petArt} <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.l_createVetBookPage.petName} <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("petName", {
@@ -70,19 +69,19 @@ const L_createVetBookPage = () => {
             minLength: { value: 2, message: texts.registrationPage.nameErrorMinLength },
           })}
           color={'var(--color-text-dark)'}
-          placeholder={texts.form.namePlaceholder}
+          placeholder={texts.l_createVetBookPage.namePlaceholder}
           borderColor="var(--color-main)"
           width={328}
         />
         {errors.petName && <p style={{ color: "red" }}>{errors.petName.message}</p>}
 
         <p className={s.addPhoto_p} style={{ marginTop: "8px", textAlign: "left" }}>
-          {texts.registrationPage.addPhoto}<span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.l_createVetBookPage.addPhoto}<span style={{ color: "#2A9D8F" }}>*</span>
         </p>
         <FileUploader maxFiles={3} boxSize={104} borderRadius={20} onUpload={onUpload} />
 
         <label style={{ alignSelf: "start" }}>
-          {texts.descriptionAnimalPage.petArt} <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.l_createVetBookPage.petArt} <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("petArt", {
@@ -90,14 +89,14 @@ const L_createVetBookPage = () => {
             minLength: { value: 2, message: texts.registrationPage.nameErrorMinLength },
           })}
           color={'var(--color-text-dark)'}
-          placeholder={texts.descriptionAnimalPage.petArt}
+          placeholder={texts.l_createVetBookPage.petArt}
           borderColor="var(--color-main)"
           width={328}
         />
         {errors.petArt && <p style={{ color: "red" }}>{errors.petArt.message}</p>}
 
         <label style={{ alignSelf: "start" }}>
-          {texts.descriptionAnimalPage.petWeight} <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.l_createVetBookPage.petWeight} <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("petWeight", {
@@ -105,14 +104,14 @@ const L_createVetBookPage = () => {
             minLength: { value: 2, message: texts.registrationPage.nameErrorMinLength },
           })}
           color={'var(--color-text-dark)'}
-          placeholder={texts.descriptionAnimalPage.petWeight}
+          placeholder={texts.l_createVetBookPage.petWeight}
           borderColor="var(--color-main)"
           width={153}
         />
         {errors.petWeight && <p style={{ color: "red" }}>{errors.petWeight.message}</p>}
 
         <label style={{ alignSelf: "start" }}>
-          {texts.descriptionAnimalPage.petGender} <span style={{ color: "#2A9D8F" }}>*</span>
+          {texts.l_createVetBookPage.petGender} <span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("petGender", {
@@ -120,30 +119,28 @@ const L_createVetBookPage = () => {
             minLength: { value: 2, message: texts.registrationPage.nameErrorMinLength },
           })}
           color={'var(--color-text-dark)'}
-          placeholder={texts.descriptionAnimalPage.petGender}
+          placeholder={texts.l_createVetBookPage.petGender}
           borderColor="var(--color-main)"
           width={153}
         />
         {errors.petGender && <p style={{ color: "red" }}>{errors.petGender.message}</p>}
 
-        <p className={s.vetBook_description}>
-          {texts.sendQuestionPage.header} -<br></br>
-          {texts.sendQuestionPage.addedMedia}<br></br>
-          {texts.sendQuestionPage.homeless} 
-        </p>
+        <p className={s.vetBook_description}
+          dangerouslySetInnerHTML={{__html:texts.l_createVetBookPage.vetBook_description}}
+        />
         <div className={s.btnBox}>
           <CustomButton 
             link="/main" 
             customStyle={{ whiteSpace: 'nowrap' }} 
             padding={'16px 34px'} 
-            text={texts.customButtonSubmit.submitText} 
+            text={texts.l_createVetBookPage.noCreateBtn} 
             disabled={isCancelButtonDisabled} 
           />
           <CustomButton 
             type="submit" 
             customStyle={{ whiteSpace: 'nowrap' }} 
             padding={'16px 34px'} 
-            text={texts.customButton.submitText} 
+            text={texts.l_createVetBookPage.createBtn} 
             disabled={isCreateButtonDisabled} 
           />
         </div>

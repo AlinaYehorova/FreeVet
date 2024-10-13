@@ -24,9 +24,9 @@ const QuestionPetList = ({ categories, onSelectImage, resetSelection }) => {
 
   return (
     <div className={s.container}>
-      <h2 className={s.questionTitle}>
-        {texts.questionPetList.title} <br /> {texts.questionPetList.subtitle}
-      </h2>
+      <h2 className={s.questionTitle}
+        dangerouslySetInnerHTML={{__html:texts.questionPetList.title}}
+      />
       <div className="categoriesList">
         {categories.map((category, categoryIndex) => (
           <div key={categoryIndex} className={s.category}>
