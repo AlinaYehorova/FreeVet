@@ -4,7 +4,7 @@ import close from '../../assets/close.svg';
 import plus from '../../assets/plus.svg';
 import texts from '../../utils/ru_text'; // Импортируем текстовый файл
 
-const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = () => {} }) => {
+const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius = '20px', onUpload = () => {} }) => {
   const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null); // создаем реф для input
 
@@ -49,11 +49,24 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
     <div className={s.uploaderContainer}>
       <div className={s.previewContainer}>
         {files.map((file, index) => (
-          <div key={index} className={s.previewBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}>
+          <div 
+            key={index} 
+            className={s.previewBox} 
+            style={{ width: boxSize, height: boxSize, borderRadius: borderRadius }}
+          >
             {file.type.startsWith('image/') ? (
-              <img src={URL.createObjectURL(file)} alt={`preview-${index}`} className={s.previewImage} style={{ width: boxSize, height: boxSize }} />
+              <img 
+                src={URL.createObjectURL(file)} 
+                alt={`preview-${index}`} 
+                className={s.previewImage} 
+                style={{ width: boxSize, height: boxSize, borderRadius: borderRadius }} // Применяем borderRadius к изображению
+              />
             ) : (
-              <video controls className={s.previewImage} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}>
+              <video 
+                controls 
+                className={s.previewImage} 
+                style={{ width: boxSize, height: boxSize, borderRadius: borderRadius }} // Применяем borderRadius к видео
+              >
                 <source src={URL.createObjectURL(file)} />
               </video>
             )}
@@ -66,7 +79,7 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
         {files.length < maxFiles && (
           <div 
             className={s.uploadBox} 
-            style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }} 
+            style={{ width: boxSize, height: boxSize, borderRadius: borderRadius }} 
             onClick={handleBoxClick} // обработка клика на div
           >
             <input
@@ -84,7 +97,7 @@ const FileUploader = ({ maxFiles = 3, boxSize = 104, borderRadius, onUpload = ()
         )}
 
         {Array.from({ length: Math.max(0, maxFiles - files.length - 1) }).map((_, idx) => (
-          <div key={idx} className={s.emptyBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius || '20px' }}></div>
+          <div key={idx} className={s.emptyBox} style={{ width: boxSize, height: boxSize, borderRadius: borderRadius }}></div>
         ))}
       </div>
     </div>

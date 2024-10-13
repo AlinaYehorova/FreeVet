@@ -1,0 +1,37 @@
+.l_phoneLoginPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  height: 100vh;
+}
+
+
+.l_phoneLoginPage h2 {
+  font-weight: 300;
+  font-size: 22px;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.l_phoneLoginPage_subtitle {
+  line-height: 0.6;
+  font-size: 16px;
+  margin: 24px 0;
+}
+
+.l_phoneLoginPage label {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.l_phoneLoginPage_lostAccess{
+  font-size: 16px;
+  align-self: start;
+}
+
+.l_phoneLoginPage_accessRestoration{
+  font-size: 16px;
+  align-self: start;
+}

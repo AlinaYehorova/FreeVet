@@ -43,6 +43,7 @@
 
 .l_vetVerificationPage textarea {
 outline-color: var(--color-main);
+font-style: italic;
 } 
 
 .checkboxBox {

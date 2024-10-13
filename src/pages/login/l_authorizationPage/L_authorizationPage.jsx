@@ -1,5 +1,4 @@
 import s from "./l_authorizationPage.module.css";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import AuthOptions from '../../../components/authOptions/AuthOptions.jsx';
 import LanguageSwitcher from  "../../../components/languageSwitcher/LanguageSwitcher.jsx";
 import logo from "../../../assets/TailBook_ecosystem.png";
@@ -18,9 +17,7 @@ const L_authorizationPage = () => {
         <img src={banner} alt="" />
         <p>{texts.authorizationPage.bannerText}</p> 
       </div>
-      <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
         <AuthOptions />
-      </GoogleOAuthProvider>
     </div>
   );
 };

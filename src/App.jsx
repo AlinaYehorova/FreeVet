@@ -18,6 +18,7 @@ import Q_sendQuestionPage from './pages/addQuestion/q_sendQuestionPage/Q_sendQue
 import Q_confirmationPage from './pages/addQuestion/q_confirmationPage/Q_confirmationPage';
 import P_userPage from "./pages/profile/p_userPage/P_userPage";
 import Loader from "./components/loader/Loader"; 
+import L_phoneLoginPage from './pages/login/l_phoneLoginPage/L_phoneLoginPage';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/verification/role/user/create-vetbook" element={<L_createVetBookPage />} />
         <Route path="/verification/role/vet/vet-verification" element={<L_vetVerificationPage />} />
         <Route path="/verification/role/vet/vet-verification/code" element={<L_vetCodePage />} />
+        <Route path="/login" element={<L_phoneLoginPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/main/question/choice" element={<Q_choiceAnimalPage />} />
         <Route path="/main/question/description-animal" element={<Q_descriptionAnimalPage />} />

@@ -77,7 +77,7 @@ const L_vetVerificationPage = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Имя и Фамилия */}
         <label style={{ alignSelf: "start" }}>
-          {texts.vetVerificationPage.nameLabel}
+          {texts.vetVerificationPage.nameLabel}<span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("name", {
@@ -92,9 +92,12 @@ const L_vetVerificationPage = () => {
         {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
 
         {/* Документы */}
-        <label style={{ alignSelf: "start", lineHeight: 0.6 }}
-          dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.documentsLabel}}
-        />
+        <div style={{display: "flex"}}>
+          <label style={{ alignSelf: "start", lineHeight: 0.6 }}
+            dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.documentsLabel}}
+          />
+          <span style={{ color: "#2A9D8F",position: "relative", top: "25px" }}>*</span>
+        </div>
         <FileUploader maxFiles={6} boxSize={50} borderRadius={5} onUpload={onUpload} />
 
         {/* Дополнительная информация */}
@@ -112,7 +115,7 @@ const L_vetVerificationPage = () => {
 
         {/* Email */}
         <label style={{ alignSelf: "start" }}>
-          {texts.vetVerificationPage.emailLabel}
+          {texts.vetVerificationPage.emailLabel}<span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("email", {
@@ -131,7 +134,7 @@ const L_vetVerificationPage = () => {
 
         {/* Telegram */}
         <label style={{ alignSelf: "start" }}>
-          {texts.vetVerificationPage.telegramLabel}
+          {texts.vetVerificationPage.telegramLabel}<span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("telegram", {
@@ -147,7 +150,7 @@ const L_vetVerificationPage = () => {
 
         {/* Специализация */}
         <label style={{ alignSelf: "start" }}>
-          {texts.vetVerificationPage.specializationLabel}
+          {texts.vetVerificationPage.specializationLabel}<span style={{ color: "#2A9D8F" }}>*</span>
         </label>
         <CustomInput
           {...register("specialization", {
@@ -162,9 +165,12 @@ const L_vetVerificationPage = () => {
         {errors.specialization && <p style={{ color: "red" }}>{errors.specialization.message}</p>}
 
         {/* Вид животных */}
-        <label style={{ alignSelf: "start", lineHeight: 0.6 }}
-          dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.petArtLabel}}
-        />
+        <div style={{display: "flex"}}>
+          <label style={{ alignSelf: "start", lineHeight: 0.6 }}
+            dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.petArtLabel}}
+          />
+          <span style={{ color: "#2A9D8F",position: "relative", top: "25px" }}>*</span>
+        </div>
         <CustomInput
           {...register("petArt", {
             required: texts.vetVerificationPage.petArtRequired,
@@ -180,9 +186,9 @@ const L_vetVerificationPage = () => {
         {/* Чекбокс */}
         <span className={s.checkboxBox}>
           <CustomCheckbox
-            {...register("confirmation")}
             name="confirmation"
             checked={isCheckboxChecked}
+            onChange={handleConfirmationChange} // Добавлен onChange для обновления состояния чекбокса
           />
           <span>{texts.vetVerificationPage.dataReliability}</span>
         </span>
