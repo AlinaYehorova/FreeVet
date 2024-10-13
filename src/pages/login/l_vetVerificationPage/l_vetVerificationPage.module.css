@@ -15,6 +15,7 @@
 
 .l_vetVerificationPage h5 {
   text-align: center;
+  line-height: 0.6;
 }
 
 .l_vetVerificationPage_pGreen {
@@ -22,6 +23,7 @@
   margin: 21px 0 8px;
   font-size: 16px;
   text-align: center;
+  line-height: 0.6;
 }
 
 .l_vetVerificationPage form {
@@ -47,10 +49,10 @@ outline-color: var(--color-main);
   display: flex;
   gap: 10px;
   font-size: 16px;
-  margin: 20px 0 47px;
+  margin: 8px 0 47px;
 }
 
-.btnBox {
+.buttonGroup {
   display: flex;
   gap: 8px;
 }

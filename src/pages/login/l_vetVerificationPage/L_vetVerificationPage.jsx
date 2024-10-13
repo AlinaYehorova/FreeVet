@@ -68,11 +68,11 @@ const L_vetVerificationPage = () => {
       <h2>{texts.vetVerificationPage.header}</h2>
       <LineHeader showMiddleLine={false} />
 
-      <h5>{texts.vetVerificationPage.notAuthorized}</h5>
+      <h5 dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.notAuthorized}}/>
       
-      <p className={s.l_vetVerificationPage_pGreen}>
-        {texts.vetVerificationPage.additionalData}
-      </p>
+      <p className={s.l_vetVerificationPage_pGreen}
+        dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.additionalData}}
+      />
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Имя и Фамилия */}
@@ -92,9 +92,9 @@ const L_vetVerificationPage = () => {
         {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
 
         {/* Документы */}
-        <label style={{ alignSelf: "start" }}>
-          {texts.vetVerificationPage.documentsLabel}
-        </label>
+        <label style={{ alignSelf: "start", lineHeight: 0.6 }}
+          dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.documentsLabel}}
+        />
         <FileUploader maxFiles={6} boxSize={50} borderRadius={5} onUpload={onUpload} />
 
         {/* Дополнительная информация */}
@@ -162,9 +162,9 @@ const L_vetVerificationPage = () => {
         {errors.specialization && <p style={{ color: "red" }}>{errors.specialization.message}</p>}
 
         {/* Вид животных */}
-        <label style={{ alignSelf: "start" }}>
-          {texts.vetVerificationPage.petArtLabel}
-        </label>
+        <label style={{ alignSelf: "start", lineHeight: 0.6 }}
+          dangerouslySetInnerHTML={{__html:texts.vetVerificationPage.petArtLabel}}
+        />
         <CustomInput
           {...register("petArt", {
             required: texts.vetVerificationPage.petArtRequired,
@@ -178,16 +178,19 @@ const L_vetVerificationPage = () => {
         {errors.petArt && <p style={{ color: "red" }}>{errors.petArt.message}</p>}
 
         {/* Чекбокс */}
-        <CustomCheckbox 
-          onChange={handleConfirmationChange} 
-          checked={isCheckboxChecked}
-          label={texts.vetVerificationPage.checkboxLabel}
-        />
+        <span className={s.checkboxBox}>
+          <CustomCheckbox
+            {...register("confirmation")}
+            name="confirmation"
+            checked={isCheckboxChecked}
+          />
+          <span>{texts.vetVerificationPage.dataReliability}</span>
+        </span>
         
         {/* Кнопки */}
         <div className={s.buttonGroup}>
-          <CustomButton disabled={isCreateButtonDisabled} text={texts.vetVerificationPage.submit} type="submit" />
-          <CustomButton disabled={isCancelButtonDisabled} text={texts.vetVerificationPage.cancel} type="button" />
+          <CustomButton disabled={isCancelButtonDisabled} text={texts.vetVerificationPage.cancelBtn} type="button" />
+          <CustomButton disabled={isCreateButtonDisabled} text={texts.vetVerificationPage.submitBtn} type="submit" />
         </div>
       </form>
     </div>
