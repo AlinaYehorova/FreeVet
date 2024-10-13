@@ -1,22 +1,20 @@
 import React from 'react';
 import CustomInput from '../../customInput/CustomInput';
-import styles from './accordion.module.css';
-import texts from '../../utils/ru_text'; // Импортируйте объект с текстами
+import s from './accordion.module.css'; // Проверьте, что это имя точно совпадает с вашим импортом
+import texts from '../../utils/ru_text'; // Импортируем объект с текстами
 
 const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInputChange }) => {
   return (
     <div
-      className={`${styles.accordionSection} ${
-        isOpen ? styles.accordionSectionOpen : styles.accordionSectionClosed
-      }`}
-      onClick={onClick} // Перемещаем обработчик клика на всю секцию
+      className={`${s.accordionSection} ${isOpen ? s.accordionSectionOpen : s.accordionSectionClosed}`} // Используем имя 's'
+      onClick={onClick}
     >
-      <h3 className={styles.accordionTitle}>
+      <h3 className={s.accordionTitle}>
         {texts[title] || title} {/* Используем текст из объекта, если он доступен */}
       </h3>
 
       {isOpen && (
-        <div className={styles.accordionContent}>
+        <div className={s.accordionContent}>
           {inputs.map((inputData, index) => (
             <div key={index}>
               <label>{texts[inputData.label] || inputData.label}</label> {/* Динамическая метка */}

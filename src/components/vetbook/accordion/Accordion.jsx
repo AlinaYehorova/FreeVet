@@ -7,7 +7,7 @@ import texts from '../../../utils/ru_text';
 
 const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInputChange }) => {
     return (
-        <div className={${s.accordionSection} ${isOpen ? s.accordionSectionOpen : s.accordionSectionClosed}}>
+        <div className={`${s.accordionSection} ${isOpen ? s.accordionSectionOpen : s.accordionSectionClosed}`}>
             <h3 className={s.accordionTitle} onClick={onClick}>
                 {title}
                 <img src={icon} alt="Icon" className={s.icon} /> 
