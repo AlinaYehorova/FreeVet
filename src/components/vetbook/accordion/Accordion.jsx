@@ -3,10 +3,11 @@ import CustomInput from '../../customInput/CustomInput';
 import FileUploader from '../../fileUploader/FileUploader'; 
 import s from './accordion.module.css';
 import icon from '../../../assets/Arrow_vet.svg'; 
+import texts from '../../../utils/ru_text';
 
 const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInputChange }) => {
     return (
-        <div className={`${s.accordionSection} ${isOpen ? s.accordionSectionOpen : s.accordionSectionClosed}`}>
+        <div className={${s.accordionSection} ${isOpen ? s.accordionSectionOpen : s.accordionSectionClosed}}>
             <h3 className={s.accordionTitle} onClick={onClick}>
                 {title}
                 <img src={icon} alt="Icon" className={s.icon} /> 
@@ -32,9 +33,10 @@ const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInput
                         </div>
                     ))}
 
-                    {title === 'Клинический осмотр' && (
+                    {/* Вставляем FileUploader для секции "Клинический осмотр" */}
+                    {title === texts.accordion.clinicalExamination && (
                         <>
-                            <label>Файлы</label>
+                            <label>{texts.accordion.files}</label>
                             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <FileUploader
                                     maxFiles={3}
@@ -57,72 +59,73 @@ const Accordion = () => {
 
     const sections = [
         {
-            title: 'Дополнительное описание',
+            title: texts.accordion.title,
             inputs: [
-                { label: 'Порода', placeholder: 'Беспородный длинношерстный' },
-                { label: 'Окрас', placeholder: 'Рыжий' },
-                { label: 'Дата рождения', placeholder: '01.10.2023' },
-                { label: 'Особые приметы', placeholder: 'Полидактилия' }
+                { label: texts.accordion.breedlabel, placeholder: texts.accordion.breedplaceholder },
+                { label: texts.accordion.colorlabel, placeholder: texts.accordion.colorplaceholder },
+                { label: texts.accordion.agelabel, placeholder: texts.accordion.ageplaceholder },
+                { label: texts.accordion.features, placeholder: texts.accordion.featuresplaceholder }
             ]
         },
         {
-            title: 'Идентификация',
+            title: texts.accordion.identification,
             inputs: [
-                { label: 'Чип Номер', placeholder: '11110120202010210202330340435040540' },
-                { label: 'Клиника, в которой установлен чип', placeholder: 'MontVet Podgorica' },
-                { label: 'Место установки чипа', placeholder: 'Холка' }
+                { label: texts.accordion.chipNumberLabel, placeholder: texts.accordion.chipNumberPlaceholder },
+                { label: texts.accordion.clinicLabel, placeholder: texts.accordion.clinicPlaceholder },
+                { label: texts.accordion.chipLocationLabel, placeholder: texts.accordion.chipLocationPlaceholder },
+                { label: texts.accordion.chipDateLabel, placeholder: texts.accordion.chipDatePlaceholder }
             ]
         },
         {
-            title: 'Вакцинация против бешенства',
+            title: texts.accordion.rabiesVaccination,
             inputs: [
-                { label: 'Вакцина*', placeholder: 'Nobivac' },
-                { label: 'Серия*', placeholder: '0989' },
-                { label: 'Срок годности*', placeholder: '01.01.2025' },
-                { label: 'Клиника, в которой поставлена вакцина*', placeholder: 'MontVet Podgorica' },
-                { label: 'Дата вакцинации*', placeholder: '10.01.2024' },
-                { label: 'Срок окончания действия*', placeholder: '10.01.2025' }
+                { label: texts.accordion.vaccineLabel, placeholder: texts.accordion.vaccinePlaceholder },
+                { label: texts.accordion.seriesLabel, placeholder: texts.accordion.seriesPlaceholder },
+                { label: texts.accordion.expiryDateLabel, placeholder: texts.accordion.expiryDatePlaceholder },
+                { label: texts.accordion.clinicVaccineLabel, placeholder: texts.accordion.clinicVaccinePlaceholder },
+                { label: texts.accordion.vaccineDateLabel, placeholder: texts.accordion.vaccineDatePlaceholder },
+                { label: texts.accordion.validityEndDateLabel, placeholder: texts.accordion.validityEndDatePlaceholder }
             ]
         },
         {
-            title: 'Другие вакцинации',
+            title: texts.accordion.otherVaccinations,
             inputs: [
-                { label: 'Вакцина*', placeholder: 'Nobivac' },
-                { label: 'Серия*', placeholder: '0989' },
-                { label: 'Срок годности*', placeholder: '01.01.2025' },
-                { label: 'Клиника, в которой поставлена вакцина*', placeholder: 'MontVet Podgorica' },
-                { label: 'Дата вакцинации*', placeholder: '10.01.2024' },
-                { label: 'Срок окончания действия*', placeholder: '10.01.2025' }
+                { label: texts.accordion.vaccineLabel, placeholder: texts.accordion.vaccinePlaceholder },
+                { label: texts.accordion.seriesLabel, placeholder: texts.accordion.seriesPlaceholder },
+                { label: texts.accordion.expiryDateLabel, placeholder: texts.accordion.expiryDatePlaceholder },
+                { label: texts.accordion.clinicVaccineLabel, placeholder: texts.accordion.clinicVaccinePlaceholder },
+                { label: texts.accordion.vaccineDateLabel, placeholder: texts.accordion.vaccineDatePlaceholder },
+                { label: texts.accordion.validityEndDateLabel, placeholder: texts.accordion.validityEndDatePlaceholder }
             ]
         },
         {
-            title: 'Дегельминтизация',
+            title: texts.accordion.deworming,
             inputs: [
-                { label: 'Перпарат*', placeholder: 'Nobivac' },
-                { label: 'Дата обработки*', placeholder: '10.01.2024' },
-                { label: 'Клиника, в которой проведена обработка (либо самостоятельно)', placeholder: 'MontVet Podgorica' },
+                { label: texts.accordion.dewormingDrugLabel, placeholder: texts.accordion.dewormingDrugPlaceholder },
+                { label: texts.accordion.dewormingDateLabel, placeholder: texts.accordion.dewormingDatePlaceholder },
+                { label: texts.accordion.clinicDewormingLabel, placeholder: texts.accordion.clinicDewormingPlaceholder },
             ]
         },
         {
-            title: 'Обработка от эктопаразитов',
+            title: texts.accordion.ectoparasiteTreatment,
             inputs: [
-                { label: 'Перпарат*', placeholder: 'Nobivac' },
-                { label: 'Дата обработки*', placeholder: '10.01.2024' },
-                { label: 'Клиника, в которой проведена обработка (либо самостоятельно)', placeholder: 'MontVet Podgorica' }
+                { label: texts.accordion.dewormingDrugLabel, placeholder: texts.accordion.dewormingDrugPlaceholder },
+                { label: texts.accordion.dewormingDateLabel, placeholder: texts.accordion.dewormingDatePlaceholder },
+                { label: texts.accordion.clinicDewormingLabel, placeholder: texts.accordion.clinicDewormingPlaceholder },
             ]
         },
         {
-            title: 'Клинический осмотр',
+            title: texts.accordion.clinicalExamination,
             inputs: [
-                { label: 'Дата*', placeholder: '10.01.2024' },
-                { label: 'Результат', placeholder: 'Здоров, выдана справка' }
+                { label: texts.accordion.examinationDateLabel, placeholder: texts.accordion.examinationDatePlaceholder },
+                { label: texts.accordion.resultLabel, placeholder: texts.accordion.resultPlaceholder },
             ]
-        },
+        }, 
         {
-            title: 'Регистрация',
+            title: texts.accordion.registration,
             inputs: [
-                { label: 'Клиника', placeholder: 'MontVet Podgorica' },
-                { label: 'Регистрационный номер', placeholder: '1212039483984837583' }
+                { label: texts.accordion.registrationClinicLabel, placeholder: texts.accordion.registrationClinicPlaceholder },
+                { label: texts.accordion.registrationNumberLabel, placeholder: texts.accordion.registrationNumberPlaceholder }
             ]
         }
     ];
