@@ -32,10 +32,10 @@ const L_verificationPage = () => {
 
   return (
     <div className={s.l_verificationPage}>
-      <FormHeader path="/register">{texts.verificationPage.header}</FormHeader>
-      <p className={s.enterCode}>
-        {texts.verificationPage.enterCode}
-      </p>
+      <FormHeader path="/register" titleKey={texts.verificationPage.header}/>
+      <p className={s.enterCode}
+        dangerouslySetInnerHTML={{ __html: texts.verificationPage.enterCode }} 
+      />
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <CodeInputBox
           control={control}

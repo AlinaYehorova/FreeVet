@@ -3,6 +3,7 @@ import CustomInput from '../../customInput/CustomInput';
 import FileUploader from '../../fileUploader/FileUploader'; 
 import s from './accordion.module.css';
 import icon from '../../../assets/Arrow_vet.svg'; 
+import texts from '../../../utils/ru_text';
 
 const AccordionSection = ({ title, isOpen, onClick, inputs, inputValues, onInputChange }) => {
     return (
