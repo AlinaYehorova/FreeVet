@@ -183,7 +183,7 @@ const texts = {
       requiredField: "Поле обязательно для заполнения+++",
   },
   mainHeader: {
-      title: "Добро пожаловать в FreeVet+++",
+      title: "Welcome to FreeVet+++",
       description: "Сервис экосистемы TailBook, предоставляющий возможность бесплатно задавать вопросы квалифицированным опытным ветеринарным врачам и получать ответы на них.+++"
   },
   verificationPage: {
