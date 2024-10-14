@@ -35,12 +35,12 @@ const L_vetCodePage = () => {
     <div className={s.l_verificationPage}>
       <h2>{texts.vetCodePage.header}</h2>
       <LineHeader showMiddleLine={false} right={"var(--color-main)"} />
-      <h5>
-        {texts.vetCodePage.notAuthorized}
-      </h5>
-      <p className={s.l_verificationCode}>
-        {texts.vetCodePage.enterCode}
-      </p>
+      <h5
+        dangerouslySetInnerHTML={{__html:texts.vetCodePage.notAuthorized}}
+      />
+      <p className={s.l_verificationCode}
+        dangerouslySetInnerHTML={{__html:texts.vetCodePage.enterCode}}
+      />
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <CodeInputBox
           control={control}

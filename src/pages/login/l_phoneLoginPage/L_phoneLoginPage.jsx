@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom"; // Импортируем useNav
 import s from "./l_phoneLoginPage.module.css";
 import { useForm } from "react-hook-form";
 import CustomInput from "../../../components/customInput/CustomInput";
-import CustomButton from "../../../components/customButton/CustomButton";
 import FormHeader from "../../../components/formHeader/FormHeader";
 import { loginUserPhone } from "../../../utils/api.js";
 import texts from "../../../utils/ru_text";
+import CustomButtonSubmit from "../../../components/customButtonSubmit/CustomButtonSubmit.jsx";
 
 const L_phoneLoginPage = () => {
   const navigate = useNavigate(); // Инициализируем useNavigate
@@ -68,7 +68,7 @@ const L_phoneLoginPage = () => {
         <p className={s.l_phoneLoginPage_accessRestoration}>{texts.phoneLoginPage.accessRestoration}</p>
       </div>
 
-      <CustomButton
+      <CustomButtonSubmit
         type="submit"
         text={texts.registrationPage.submitButton}
         padding="16px 78px"
